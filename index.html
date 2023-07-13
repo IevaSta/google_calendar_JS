@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- style  -->
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./assets/style/vars.css">
+    <link rel="stylesheet" href="./main.css">
+
+    <title>Wix calendar</title>
+</head>
+
+<body>
+    <header class="header-wrapper">
+        <div class="header__nav-wrapper">
+            <button class="btn btn--round">
+                <img src="./assets/svg/burger.svg" alt="Burger image.">
+            </button>
+            <h1>
+                <img class="calendar-logo" src="https://ssl.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_13_2x.png"
+                    alt="Google calendar logo.">
+                Calendar
+            </h1>
+
+            <button class="btn btn--border">Today</button>
+            <button class="btn">
+                <img src="./assets/svg/arrow-left.svg" alt="Arrow to go back one step." />
+            </button>
+            <button class="btn">
+                <img src="./assets/svg/arrow-right.svg" alt="Arrow to go forward one step." />
+            </button>
+            <h2>Month year</h2>
+        </div>
+
+        <select class="btn btn--border" name="time-range" id="time-range">
+            <option value="day">Day</option>
+            <option value="week">Week</option>
+            <option value="month">Month</option>
+        </select>
+    </header>
+
+</body>
+
+</html>
