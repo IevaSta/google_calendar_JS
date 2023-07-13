@@ -4,6 +4,10 @@ body {
     height: 100vh;
 }
 
+li {
+    list-style-type: none;
+}
+
 /* header */
 .header-wrapper {
     width: 100%;
@@ -46,7 +50,7 @@ body {
     border-radius: .25rem;
 }
 
-.btn--round:hover{
+.btn--round:hover {
     height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -56,3 +60,37 @@ body {
 .btn:focus {
     background-color: var(--hover);
 }
+
+/* side wrapper */
+.side-wrapper {
+    width: 30%;
+}
+
+.side-calendar__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.side-calendar__body{
+    font-size: 12px;
+}
+
+.side-calendar__week,
+.side-calendar__day {
+    display: grid;
+    grid-template-columns: repeat(7, 40px);
+}
+
+.side-calendar__week>li,
+.side-calendar__day>li {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-curr-month,
+.side-calendar__week {
+    color: var(--secondary);
+}
+
