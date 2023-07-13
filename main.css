@@ -63,7 +63,7 @@ li {
 
 /* side wrapper */
 .side-wrapper {
-    width: 30%;
+    width: max-content;
 }
 
 .side-calendar__header {
@@ -76,21 +76,42 @@ li {
 }
 
 .side-calendar__week,
-.side-calendar__day {
+.side-calendar__list {
     display: grid;
     grid-template-columns: repeat(7, 40px);
+    gap: 5px;
+    margin: 5px 0;
 }
 
 .side-calendar__week>li,
-.side-calendar__day>li {
+.side-calendar__day {
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.side-calendar__day:hover{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: var(--hover);
+}
+
 .not-curr-month,
 .side-calendar__week {
     color: var(--secondary);
+}
+
+.crr-day{
+    color: var(--light);
+    background-color: var(--accent-dark);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.crr-day:hover{
+    background-color: var(--accent-hover);
 }
 
