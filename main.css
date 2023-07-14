@@ -168,6 +168,9 @@ li {
 }
 
 
-/* .lg-calendar__cell-item:nth-of-type(){
+/* think again */
+.lg-calendar__cell-item:nth-of-type(n+162){
     border-bottom: unset;
-} */
+}
+
+
