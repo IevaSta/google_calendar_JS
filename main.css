@@ -69,28 +69,21 @@ li {
 }
 
 /* side wrapper */
-.side-wrapper {
-    width: max-content;
-}
-
 .side-calendar__header {
     display: flex;
     justify-content: space-between;
 }
 
-.side-calendar__body{
-    font-size: 12px;
-}
-
-.side-calendar__week,
+.side-calendar__column,
 .side-calendar__list {
     display: grid;
     grid-template-columns: repeat(7, 40px);
     gap: 5px;
     margin: 5px 0;
+    font-size: 12px;
 }
 
-.side-calendar__week>li,
+.side-calendar__column>li,
 .side-calendar__day {
     height: 40px;
     display: flex;
@@ -106,7 +99,7 @@ li {
 }
 
 .not-curr-month,
-.side-calendar__week {
+.side-calendar__column {
     color: var(--secondary);
 }
 
@@ -150,13 +143,13 @@ li {
 }
 
 .lg-calendar__column,
-.lg-calendar__row{
+.lg-calendar__cell-list{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-column: span 2;
 }
 
-.lg-calendar__cell-item:nth-of-type(1n){
+.lg-calendar__cell-item{
     height: auto;
     width: auto;
     border-right: 1px solid var(--secondary);
@@ -169,8 +162,6 @@ li {
 
 
 /* think again */
-.lg-calendar__cell-item:nth-of-type(n+162){
-    border-bottom: unset;
-}
+
 
 
