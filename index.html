@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- style  -->
+    <link rel="stylesheet" href="./assets/style/reset.css">
+    <link rel="stylesheet" href="./assets/style/vars.css">
+    <link rel="stylesheet" href="./main.css">
+
+    <title>Wix calendar</title>
+</head>
+
+<body>
+    <header class="header-wrapper">
+        <div class="header__nav-wrapper">
+            <button class="btn btn--round">
+                <img src="./assets/svg/burger.svg" alt="Burger image.">
+            </button>
+            <h1>
+                <img class="calendar-logo"
+                    src="https://ssl.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_13_2x.png"
+                    alt="Google calendar logo.">
+                Calendar
+            </h1>
+
+            <button class="btn btn--border">Today</button>
+            <button class="btn">
+                <img src="./assets/svg/arrow-left.svg" alt="Arrow to go back one step." />
+            </button>
+            <button class="btn">
+                <img src="./assets/svg/arrow-right.svg" alt="Arrow to go forward one step." />
+            </button>
+            <h2>Month year</h2>
+        </div>
+
+        <select class="btn btn--border" name="time-range" id="time-range">
+            <option value="day">Day</option>
+            <option value="week">Week</option>
+            <option value="month">Month</option>
+        </select>
+    </header>
+
+
+    <main class="main-wrapper">
+        <aside class="side-wrapper">
+            <button class="btn btn--border">
+                <img src="./assets/svg/add.svg" alt="Google add icon.">
+                Create</button>
+
+            <section class="side-calendar">
+                <div class="side-calendar__header">
+                    <h3>Month Year</h3>
+                    <div class="side-calendar__header--btn-wrapper">
+                        <button class="btn">
+                            <img src="./assets/svg/arrow-left.svg" alt="Arrow to go back one step." />
+                        </button>
+                        <button class="btn">
+                            <img src="./assets/svg/arrow-right.svg" alt="Arrow to go forward one step." />
+                        </button>
+                    </div>
+                </div>
+
+                <div class="side-calendar__body">
+                    <ul class="side-calendar__column">
+                        <li>S</li>
+                        <li>M</li>
+                        <li>T</li>
+                        <li>W</li>
+                        <li>T</li>
+                        <li>F</li>
+                        <li>S</li>
+                    </ul>
+
+                    <ul class="side-calendar__list">
+                        <li class="side-calendar__day not-curr-month">25</li>
+                        <li class="side-calendar__day not-curr-month">26</li>
+                        <li class="side-calendar__day not-curr-month">27</li>
+                        <li class="side-calendar__day not-curr-month">28</li>
+                        <li class="side-calendar__day not-curr-month">29</li>
+                        <li class="side-calendar__day not-curr-month">30</li>
+                        <li class="side-calendar__day">1</li>
+
+                        <li class="side-calendar__day">2</li>
+                        <li class="side-calendar__day crr-day">3</li>
+                        <li class="side-calendar__day">4</li>
+                        <li class="side-calendar__day">5</li>
+                        <li class="side-calendar__day">6</li>
+                        <li class="side-calendar__day">7</li>
+                        <li class="side-calendar__day">8</li>
+
+                        <li class="side-calendar__day">9</li>
+                        <li class="side-calendar__day">10</li>
+                        <li class="side-calendar__day">11</li>
+                        <li class="side-calendar__day">12</li>
+                        <li class="side-calendar__day">13</li>
+                        <li class="side-calendar__day">14</li>
+                        <li class="side-calendar__day">15</li>
+
+                        <li class="side-calendar__day">16</li>
+                        <li class="side-calendar__day">17</li>
+                        <li class="side-calendar__day">18</li>
+                        <li class="side-calendar__day">18</li>
+                        <li class="side-calendar__day">19</li>
+                        <li class="side-calendar__day">21</li>
+                        <li class="side-calendar__day">22</li>
+
+                        <li class="side-calendar__day">23</li>
+                        <li class="side-calendar__day">24</li>
+                        <li class="side-calendar__day">25</li>
+                        <li class="side-calendar__day">26</li>
+                        <li class="side-calendar__day">27</li>
+                        <li class="side-calendar__day">28</li>
+                        <li class="side-calendar__day">29</li>
+
+                        <li class="side-calendar__day">30</li>
+                        <li class="side-calendar__day">31</li>
+                        <li class="side-calendar__day not-curr-month">1</li>
+                        <li class="side-calendar__day not-curr-month">2</li>
+                        <li class="side-calendar__day not-curr-month">3</li>
+                        <li class="side-calendar__day not-curr-month">4</li>
+                        <li class="side-calendar__day not-curr-month">5</li>
+                    </ul>
+                </div>
+            </section>
+        </aside>
+
+        <section class="lg-calendar-wrapper">
+
+            <span class="lg-calendar__gmt">gmt+03</span>
+
+            <ul class="lg-calendar__column">
+                <li>
+                    <span>sun</span>
+                    <span>9</span>
+                </li>
+                <li>
+                    <span>mon</span>
+                    <span>10</span>
+                </li>
+                <li>
+                    <span>tue</span>
+                    <span>11</span>
+                </li>
+                <li>
+                    <span>wed</span>
+                    <span>12</span>
+                </li>
+                <li>
+                    <span>thu</span>
+                    <span>13</span>
+                </li>
+                <li>
+                    <span>fri</span>
+                    <span>14</span>
+                </li>
+                <li>
+                    <span>sat</span>
+                    <span>15</span>
+                </li>
+            </ul>
+
+            <ul class="lg-calendar__hour-wrapper">
+                <li>1 am</li>
+                <li>2 am</li>
+                <li>3 am</li>
+                <li>4 am</li>
+                <li>5 am</li>
+                <li>6 am</li>
+                <li>7 am</li>
+                <li>8 am</li>
+                <li>9 am</li>
+                <li>10 am</li>
+                <li>11 am</li>
+                <li>12 pm</li>
+                <li>1 pm</li>
+                <li>2 pm</li>
+                <li>3 pm</li>
+                <li>4 pm</li>
+                <li>5 pm</li>
+                <li>6 pm</li>
+                <li>7 pm</li>
+                <li>8 pm</li>
+                <li>9 pm</li>
+                <li>10 pm</li>
+                <li>11 pm</li>
+            </ul>
+
+            <ul class="lg-calendar__cell-list">
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+                <li class="lg-calendar__cell-item"></li>
+            </ul>
+
+
+        </section>
+
+
+
+    </main>
+
+
+
+</body>
+
+</html>

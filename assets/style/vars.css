@@ -1,0 +1,13 @@
+:root {
+    /* colors */
+    --primary: #3c4043;
+    --secondary: #70757a;
+    --light: #ffffff;
+
+    --border: rgb(218,220,224);
+    --hover: rgb(237, 240, 245);
+
+    --accent-dark: #1a73e8;
+    --accent-hover: rgb(24,90,188);
+    --accent-light: #039be5;
+}

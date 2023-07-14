@@ -1,0 +1,167 @@
+body {
+    font-family: 'Wix Madefor Text', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* header */
+.header-wrapper {
+    width: 100%;
+    height: 60px;
+    padding-left: 35px;
+    padding-right: 35px;
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__nav-wrapper {
+    display: flex;
+    gap: 30px;
+}
+
+.calendar-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.btn {
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 40px;
+    border: unset;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    color: var(--primary);
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn--border {
+    border: 1px solid var(--border);
+    border-radius: .25rem;
+}
+
+.btn--round:hover {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: var(--hover);
+}
+
+/* main wrapper */
+.main-wrapper{
+    display: flex;
+    gap: 5%;
+    margin-right: 30px;
+}
+
+/* side wrapper */
+.side-calendar__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.side-calendar__column,
+.side-calendar__list {
+    display: grid;
+    grid-template-columns: repeat(7, 40px);
+    gap: 5px;
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+.side-calendar__column>li,
+.side-calendar__day {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-calendar__day:hover{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: var(--hover);
+}
+
+.not-curr-month,
+.side-calendar__column {
+    color: var(--secondary);
+}
+
+.crr-day{
+    color: var(--light);
+    background-color: var(--accent-dark);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.crr-day:hover{
+    background-color: var(--accent-hover);
+}
+
+/* lg-calendar-wrapper */
+.lg-calendar-wrapper{
+    width: 100%;
+    height: calc(100vh - 145px);
+    display: grid;
+    grid-template-columns: 80px repeat(2, auto); 
+    overflow: scroll;
+}
+
+.lg-calendar__column,
+.lg-calendar__gmt{
+    position: sticky;
+    top: 0;
+    background-color: var(--light);
+}
+
+.lg-calendar-wrapper>span,
+.lg-calendar__hour-wrapper>li{
+    height: 40px;
+}
+
+.lg-calendar__column,
+.lg-calendar__hour-wrapper,
+.lg-calendar__gmt {
+    text-transform: uppercase;
+}
+
+.lg-calendar__column,
+.lg-calendar__cell-list{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-column: span 2;
+}
+
+.lg-calendar__cell-item{
+    height: auto;
+    width: auto;
+    border-right: 1px solid var(--secondary);
+    border-bottom: 1px solid var(--secondary);
+}
+
+.lg-calendar__cell-item:nth-of-type(7n){
+    border-right: unset;
+}
+
+
+/* think again */
+
+
+
