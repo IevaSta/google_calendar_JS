@@ -129,6 +129,7 @@ li {
     position: sticky;
     top: 0;
     background-color: var(--light);
+    z-index: 1;
 }
 
 .lg-calendar__column-list>span {
