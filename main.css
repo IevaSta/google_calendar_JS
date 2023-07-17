@@ -143,35 +143,29 @@ li {
 }
 
 .lg-calendar-wrapper>span,
-.lg-calendar__hour-wrapper>li {
+.lg-calendar__hour-list-wrapper>li {
     height: 40px;
 }
 
 .lg-calendar__column,
-.lg-calendar__hour-wrapper,
+.lg-calendar__hour-list-wrapper,
 .lg-calendar__gmt {
     text-transform: uppercase;
 }
 
-.lg-calendar__hour-wrapper>li {
+.lg-calendar__hour-list-wrapper>li {
     display: flex;
     align-items: center;
-    justify-content: center;
     transform: translateY(50%);
 }
 
-.lg-calendar__hour-wrapper>li::after {
+.lg-calendar__hour-list-wrapper>li::after {
+    position: absolute;
     content: "";
-
-
-    /* continue here */
-
-    top: 0;
-    left: 0;
+    bottom: 20px;
+    right: 0;
     width: 15px;
-    height: 10px;
-    border-right: 1px solid red;
-
+    border-right: 1px solid var(--secondary);
 }
 
 .lg-calendar__column,
