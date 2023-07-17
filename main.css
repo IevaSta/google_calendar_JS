@@ -133,6 +133,10 @@ li {
     border-bottom: 1px solid var(--secondary);
 }
 
+.lg-calendar__gmt{
+    padding-bottom: 55px;
+}
+
 .lg-calendar__column-list>span {
     display: flex;
     align-items: center;
