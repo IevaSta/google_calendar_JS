@@ -62,7 +62,7 @@ li {
 }
 
 /* main wrapper */
-.main-wrapper{
+.main-wrapper {
     display: flex;
     gap: 5%;
     margin-right: 30px;
@@ -91,7 +91,7 @@ li {
     align-items: center;
 }
 
-.side-calendar__day:hover{
+.side-calendar__day:hover {
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -103,7 +103,7 @@ li {
     color: var(--secondary);
 }
 
-.crr-day{
+.crr-day {
     color: var(--light);
     background-color: var(--accent-dark);
     height: 40px;
@@ -111,28 +111,39 @@ li {
     border-radius: 50%;
 }
 
-.crr-day:hover{
+.crr-day:hover {
     background-color: var(--accent-hover);
 }
 
 /* lg-calendar-wrapper */
-.lg-calendar-wrapper{
+.lg-calendar-wrapper {
     width: 100%;
     height: calc(100vh - 145px);
     display: grid;
-    grid-template-columns: 80px repeat(2, auto); 
+    grid-template-columns: 80px repeat(2, auto);
     overflow: scroll;
 }
 
 .lg-calendar__column,
-.lg-calendar__gmt{
+.lg-calendar__gmt {
     position: sticky;
     top: 0;
     background-color: var(--light);
 }
 
+.lg-calendar__column-list>span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lg-calendar__column-list--border {
+    height: 15px;
+    border-right: 1px solid var(--secondary);
+}
+
 .lg-calendar-wrapper>span,
-.lg-calendar__hour-wrapper>li{
+.lg-calendar__hour-wrapper>li {
     height: 40px;
 }
 
@@ -142,26 +153,41 @@ li {
     text-transform: uppercase;
 }
 
+.lg-calendar__hour-wrapper>li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(50%);
+}
+
+.lg-calendar__hour-wrapper>li::after {
+    content: "";
+
+
+    /* continue here */
+
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 10px;
+    border-right: 1px solid red;
+
+}
+
 .lg-calendar__column,
-.lg-calendar__cell-list{
+.lg-calendar__cell-list {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-column: span 2;
 }
 
-.lg-calendar__cell-item{
-    height: auto;
+.lg-calendar__cell-item {
+    height: 40px;
     width: auto;
     border-right: 1px solid var(--secondary);
     border-bottom: 1px solid var(--secondary);
 }
 
-.lg-calendar__cell-item:nth-of-type(7n){
+.lg-calendar__cell-item:nth-of-type(7n) {
     border-right: unset;
 }
-
-
-/* think again */
-
-
-
