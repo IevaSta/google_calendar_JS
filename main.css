@@ -133,7 +133,7 @@ li {
     border-bottom: 1px solid var(--secondary);
 }
 
-.lg-calendar__gmt{
+.lg-calendar__gmt {
     padding-bottom: 55px;
 }
 
@@ -190,4 +190,58 @@ li {
 
 .lg-calendar__cell-item:nth-of-type(7n) {
     border-right: unset;
+}
+
+/* Event creation modal layout  */
+.event-modal {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+
+
+    height: 500px;
+    width: 800px;
+    background-color: var(--light);
+    border-radius: 8px;
+
+    box-shadow: 0px 0px 5px 4px rgba(112, 117, 122, 0.75);
+    -webkit-box-shadow: 0px 0px 5px 4px rgba(112, 117, 122, 0.75);
+    -moz-box-shadow: 0px 0px 5px 4px rgba(112, 117, 122, 0.75);
+}
+
+
+
+.event-modal__header {
+    height: 35px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: var(--tertiary);
+
+    display: flex;
+    justify-content: end;
+}
+
+.event-modal__header>.btn{
+    background-color: transparent;
+    margin-right: 16px;
+}
+
+.close-event-icon {
+    height: 15px;
+    width: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.event__form{
+    display: flex;
+    flex-direction: column;
+}
+
+.event-nav-list,
+.event-creator__settings{
+    display: flex;
+    flex-direction: row;
 }

@@ -51,7 +51,7 @@
 
     <main class="main-wrapper">
         <aside class="side-wrapper">
-            <button class="btn btn--border">
+            <button class="open-event-modal btn btn--border">
                 <img src="./assets/svg/add.svg" alt="Google add icon.">
                 Create</button>
 
@@ -421,16 +421,83 @@
                 <li class="lg-calendar__cell-item"></li>
                 <li class="lg-calendar__cell-item"></li>
             </ul>
-
-
         </section>
-
-
-
     </main>
 
+    <!-- Event creation modal layout -->
+        <section class="event-modal hidden">
+
+        <header class="event-modal__header">
+            <button class="close-event-modal btn">
+                <img class="close-event-icon" src="./assets/svg/close.svg" alt="Close icon.">
+            </button>
+        </header>
+
+        <form class="event__form">
+            <input type="text" placeholder="Add title">
+
+            <nav class="event-nav">
+                <ul class="event-nav-list">
+                    <li>Event</li>
+                    <li>Focus time</li>
+                    <li>Out of office</li>
+                    <li>Work location
+                        <span>new</span>
+                    </li>
+                    <li>Task</li>
+                    <li>Appointment schedule</li>
+                </ul>
+            </nav>
+
+            <article>
+                <label for="date"></label>
+                <select name="date" id="date">
+                    <option value="today">Monday, July 17</option>
+                    <option value="tomorrow">Tuesday, July 18</option>
+                </select>
+
+                <label for="timeline"></label>
+                <select name="time-start" id="time-start">
+                    <option value="now">6:30 pm</option>
+                    <option value="later">7:00 pm</option>
+                </select>
+
+                <select name="time-stop" id="time-stop">
+                    <option value="half-hour">7:00 pm</option>
+                    <option value="hour">7:30 pm</option>
+                </select>
+            </article>
+
+            <label for="guests"></label>
+            <input type="text" placeholder="Add guest">
+
+            <label for="remote-type"></label>
+            <select name="remote-type" id="remote-type">
+                <option value="">Add video conferencing</option>
+                <option value="remote-google">Google meet</option>
+                <option value="remote-zoom">Zoom Meeting</option>
+            </select>
+
+            <label for="location"></label>
+            <input type="text" placeholder="Add rooms or location">
+
+            <label for="description"></label>
+            <input type="text" placeholder="Add description or attachments">
 
 
+            <span>Ieva St</span>
+            <ul class="event-creator__settings">
+                <li>Busy</li>
+                <li>Default visibility</li>
+                <li>Notify 10 minutes before</li>
+            </ul>
+        </form>
+
+        <button>More options</button>
+        <button>Save</button>
+    </section>
+
+    <script src="./js/script.js" type="module" defer></script>
 </body>
 
 </html>
