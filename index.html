@@ -425,7 +425,8 @@
     </main>
 
     <!-- Event creation modal layout -->
-        <section class="event-modal hidden">
+    <section class="event-modal">
+        <!-- <section class="event-modal hidden"> -->
 
         <header class="event-modal__header">
             <button class="close-event-modal btn">
@@ -434,12 +435,14 @@
         </header>
 
         <form class="event__form">
-            <input type="text" placeholder="Add title">
+            <input class="event__form-header" type="text" placeholder="Add title">
 
             <nav class="event-nav">
                 <ul class="event-nav-list">
                     <li>Event</li>
-                    <li>Focus time</li>
+                    <li>Focus time
+                        <span>new</span>
+                    </li>
                     <li>Out of office</li>
                     <li>Work location
                         <span>new</span>
@@ -449,24 +452,11 @@
                 </ul>
             </nav>
 
-            <article>
+            <div>
                 <label for="date"></label>
-                <select name="date" id="date">
-                    <option value="today">Monday, July 17</option>
-                    <option value="tomorrow">Tuesday, July 18</option>
-                </select>
-
-                <label for="timeline"></label>
-                <select name="time-start" id="time-start">
-                    <option value="now">6:30 pm</option>
-                    <option value="later">7:00 pm</option>
-                </select>
-
-                <select name="time-stop" id="time-stop">
-                    <option value="half-hour">7:00 pm</option>
-                    <option value="hour">7:30 pm</option>
-                </select>
-            </article>
+                <input type="date">
+                <input type="time">
+            </div>
 
             <label for="guests"></label>
             <input type="text" placeholder="Add guest">
@@ -481,8 +471,15 @@
             <label for="location"></label>
             <input type="text" placeholder="Add rooms or location">
 
-            <label for="description"></label>
-            <input type="text" placeholder="Add description or attachments">
+            <div>
+                <label class="event-modal__input-label-description" for="description">Add</label>
+                <input class="event-modal__input-description" id="description" type="text" placeholder="description">
+
+                <span>or</span>
+
+                <label class="event-modal__input-label-file" for="file">attachments</label>
+                <input class="event-modal__input-file" type="file" id="file">
+            </div>
 
 
             <span>Ieva St</span>
@@ -493,11 +490,15 @@
             </ul>
         </form>
 
-        <button>More options</button>
-        <button>Save</button>
+        <div class="event__button--wrapper">
+            <button class="btn ">More options</button>
+            <button class="btn btn--border btn--blue">Save</button>
+        </div>
     </section>
 
-    <script src="./js/script.js" type="module" defer></script>
+    <!-- <iframe src="./components/event-modal.html" title="event-modal" frameborder="0"></iframe> -->
+
+    <!-- <script src="./js/script.js" type="module" defer></script> -->
 </body>
 
 </html>

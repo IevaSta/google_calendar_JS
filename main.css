@@ -198,6 +198,9 @@ li {
     top: 20%;
     left: 20%;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     height: 500px;
     width: 800px;
@@ -208,8 +211,6 @@ li {
     -webkit-box-shadow: 0px 0px 5px 4px rgba(112, 117, 122, 0.75);
     -moz-box-shadow: 0px 0px 5px 4px rgba(112, 117, 122, 0.75);
 }
-
-
 
 .event-modal__header {
     height: 35px;
@@ -238,10 +239,70 @@ li {
 .event__form{
     display: flex;
     flex-direction: column;
+    padding: 24px 16px 40px 24px;
+    font-size: 16px;
 }
 
 .event-nav-list,
 .event-creator__settings{
     display: flex;
     flex-direction: row;
+}
+
+.event__form-header{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--border);
+
+    font-size: 22px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+.event__form-header:focus{
+    border-bottom: 2px solid var(--accent-dark);
+}
+
+.event-nav-list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-modal__input-description{
+    outline: none;
+    border: none;
+    font-size: 16px;
+}
+
+.event-modal__input-description::placeholder {
+    font-size: 16px;
+    bottom: 0;
+    color: var(--secondary);
+}
+
+
+
+.event-modal__input-file{
+    display: none;
+}
+
+.event-modal__input-description:hover,
+.event-modal__input-description:focus,
+.event-modal__input-label-file:hover,
+.event-modal__input-label-file:focus {
+    cursor: pointer;
+    text-decoration:underline;
+}
+
+.event__button--wrapper{
+    display: flex;
+    justify-content: end;
+    padding: 0 16px 10px 0;
+}
+
+.btn--blue {
+    background-color: var(--accent-dark);
+    color: var(--light);
+    padding: 12px 24px;
+    font-weight: 200;
 }
