@@ -272,14 +272,16 @@ li {
     outline: none;
     border: none;
     font-size: 16px;
+    line-height: 1.4;
 }
 
+.event-modal__input-label-file,
 .event-modal__input-description::placeholder {
     font-size: 16px;
     bottom: 0;
     color: var(--secondary);
+    text-align: center;
 }
-
 
 
 .event-modal__input-file{

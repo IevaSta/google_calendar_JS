@@ -425,8 +425,9 @@
     </main>
 
     <!-- Event creation modal layout -->
-    <section class="event-modal">
-        <!-- <section class="event-modal hidden"> -->
+    <!-- <section class="event-modal"> -->
+        <section class="event-modal">
+            <!-- <section class="event-modal hidden"> -->
 
         <header class="event-modal__header">
             <button class="close-event-modal btn">
@@ -439,16 +440,16 @@
 
             <nav class="event-nav">
                 <ul class="event-nav-list">
-                    <li>Event</li>
-                    <li>Focus time
+                    <li><button class="btn btn--border">Event</button></li>
+                    <li><button class="btn btn--border">Focus time</button>
                         <span>new</span>
                     </li>
-                    <li>Out of office</li>
-                    <li>Work location
+                    <li><button class="btn btn--border">Out of office</button></li>
+                    <li><button class="btn btn--border">Work location</button>
                         <span>new</span>
                     </li>
-                    <li>Task</li>
-                    <li>Appointment schedule</li>
+                    <li><button class="btn btn--border">Task</button></li>
+                    <li><button class="btn btn--border">Appointment schedule</button></li>
                 </ul>
             </nav>
 
@@ -456,7 +457,11 @@
                 <label for="date"></label>
                 <input type="date">
                 <input type="time">
+                <span>Time zone</span>
+                <span>Does not repeat</span>
             </div>
+
+            <button class="btn btn--border">Find a time</button>
 
             <label for="guests"></label>
             <input type="text" placeholder="Add guest">
@@ -472,7 +477,7 @@
             <input type="text" placeholder="Add rooms or location">
 
             <div>
-                <label class="event-modal__input-label-description" for="description">Add</label>
+                <label for="description">Add</label>
                 <input class="event-modal__input-description" id="description" type="text" placeholder="description">
 
                 <span>or</span>
@@ -496,9 +501,7 @@
         </div>
     </section>
 
-    <!-- <iframe src="./components/event-modal.html" title="event-modal" frameborder="0"></iframe> -->
-
-    <!-- <script src="./js/script.js" type="module" defer></script> -->
+    <script src="./js/script.js" type="module" defer></script>
 </body>
 
 </html>
