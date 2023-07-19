@@ -2,6 +2,15 @@ const eventModal = document.querySelector('.event-modal');
 const closeModal = () => eventModal.classList.add('hidden');
 const openModal = () => eventModal.classList.remove('hidden');
 
+
+//Vaidas ch!!!
+
+// document.querySelector('#today-test').addEventListener('click', (e) => {
+//     e.stopPropagation(); 
+//     console.log('test');
+// });
+
+
 document.querySelector('.open-event-modal').addEventListener('click', (e) => {
     e.stopPropagation(); 
     openModal();
@@ -16,3 +25,5 @@ function isClickedOutsideEventModal(target) {
 document.addEventListener('click', (e) => {
     isClickedOutsideEventModal(e.target) && closeModal();
 });
+
+

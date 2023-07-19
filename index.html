@@ -7,7 +7,7 @@
     <!-- font  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:wght@400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
 
     <!-- style  -->
@@ -31,7 +31,7 @@
                 Calendar
             </h1>
 
-            <button class="btn btn--border">Today</button>
+            <button class="btn btn--border" id="today-test">Today</button>
             <button class="btn">
                 <img src="./assets/svg/arrow-left.svg" alt="Arrow to go back one step." />
             </button>
@@ -425,9 +425,8 @@
     </main>
 
     <!-- Event creation modal layout -->
-    <!-- <section class="event-modal"> -->
-        <section class="event-modal">
-            <!-- <section class="event-modal hidden"> -->
+    <dialog class="event-modal">
+        <!-- <dialog class="event-modal hidden"> -->
 
         <header class="event-modal__header">
             <button class="close-event-modal btn">
@@ -440,41 +439,54 @@
 
             <nav class="event-nav">
                 <ul class="event-nav-list">
-                    <li><button class="btn btn--border">Event</button></li>
-                    <li><button class="btn btn--border">Focus time</button>
-                        <span>new</span>
-                    </li>
-                    <li><button class="btn btn--border">Out of office</button></li>
-                    <li><button class="btn btn--border">Work location</button>
-                        <span>new</span>
-                    </li>
-                    <li><button class="btn btn--border">Task</button></li>
-                    <li><button class="btn btn--border">Appointment schedule</button></li>
+                    <li><button class="event-btn">Event</button></li>
+                    <li><button class="event-btn">Focus time</button></li>
+                    <li><button class="event-btn">Out of office</button></li>
+                    <li><button class="event-btn">Work location</button></li>
+                    <li><button class="event-btn">Task</button></li>
+                    <li><button class="event-btn">Appointment schedule</button></li>
                 </ul>
             </nav>
 
-            <div>
-                <label for="date"></label>
-                <input type="date">
-                <input type="time">
-                <span>Time zone</span>
-                <span>Does not repeat</span>
-            </div>
+            <span>
+                <label>
+                    <input class="event--set-date" type="datetime-local">
+                </label>
+            </span>
 
-            <button class="btn btn--border">Find a time</button>
+            <span class="event-checkbox">
+                <label class="event-checkbox__label">
+                    <input class="event-checkbox__input" type="checkbox"></input>
+                    <span>All day</span>
+                </label>
+                <button class="event-btn">Time zone</button>
+            </span>
 
-            <label for="guests"></label>
-            <input type="text" placeholder="Add guest">
+            <label>
+                <select class="event-select">
+                    <option value="does-not-repeat">Does not repeat</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                </select>
+            </label>
 
-            <label for="remote-type"></label>
-            <select name="remote-type" id="remote-type">
-                <option value="">Add video conferencing</option>
-                <option value="remote-google">Google meet</option>
-                <option value="remote-zoom">Zoom Meeting</option>
-            </select>
+            <button class="event-btn btn--blue-font">Find a time</button>
 
-            <label for="location"></label>
-            <input type="text" placeholder="Add rooms or location">
+            <label>
+                <input class="event-checkbox__guest" type="text" placeholder="Add guest">
+            </label>
+
+            <label>
+                <select class="remote-type">
+                    <option value="">Add video conferencing</option>
+                    <option value="remote-google">Google meet</option>
+                    <option value="remote-zoom">Zoom Meeting</option>
+                </select>
+            </label>
+
+            <label>
+                <input class="event-checkbox__location" type="text" placeholder="Add rooms or location">
+            </label>
 
             <div>
                 <label for="description">Add</label>
@@ -499,7 +511,7 @@
             <button class="btn ">More options</button>
             <button class="btn btn--border btn--blue">Save</button>
         </div>
-    </section>
+    </dialog>
 
     <script src="./js/script.js" type="module" defer></script>
 </body>
