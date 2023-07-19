@@ -1,0 +1,83 @@
+.event-btn {
+    font-size: 14px;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.event-btn:hover {
+    cursor: pointer;
+}
+
+/* 
+nav tabs button
+time zone button
+*/
+.event-nav-btn {
+    color: var(--color-font-light);
+    padding: 6px 12px;
+}
+
+.event-nav-btn:hover,
+.event-nav-btn:focus {
+    background-color: var(--color-hover);
+}
+
+.event-nav-btn:active {
+    background-color: var(--color-tertiary);
+}
+
+/* find time button */
+.event-time-btn {
+    color: var(--color-accent-dark);
+    align-self: flex-start;
+    margin-inline-start: -10px;
+    padding: 10px;
+    padding-inline-start: 10px;
+}
+
+.event-time-btn:hover,
+.event-time-btn:focus {
+    background-color: #f6fafe;
+    color: var(--color-accent-hover);
+}
+
+.event-time-btn:active {
+    background-color: var(--color-active);
+}
+
+/* more options button */
+.event-more-btn {
+    color: var(--color-font-light);
+    padding: 6px 12px;
+}
+
+.event-more-btn:hover,
+.event-more-btn:focus {
+    background-color: var(--color-hover);
+    color: var(--color-font);
+}
+
+.event-more-btn:active {
+    background-color: var(--color-tertiary);
+}
+
+/* save button */
+.event-save-btn {
+    background-color: var(--color-accent-dark);
+    color: var(--color-light);
+    align-self: flex-start;
+    padding: 12px 24px;
+    margin-inline-start: 10px;
+}
+.event-save-btn:hover,
+.event-save-btn:focus {
+    background-color: var(--color-medium);
+    color: var(--color-font);
+}
+
+.event-save-btn:active {
+    background-color:  var( --color-accent-active-dark);
+}

@@ -439,45 +439,48 @@
 
             <nav class="event-nav">
                 <ul class="event-nav-list">
-                    <li><button class="event-btn">Event</button></li>
-                    <li><button class="event-btn">Focus time</button></li>
-                    <li><button class="event-btn">Out of office</button></li>
-                    <li><button class="event-btn">Work location</button></li>
-                    <li><button class="event-btn">Task</button></li>
-                    <li><button class="event-btn">Appointment schedule</button></li>
+                    <li><button class="event-btn event-nav-btn event-form__item">Event</button></li>
+                    <li><button class="event-btn event-nav-btn event-form__item">Focus time</button></li>
+                    <li><button class="event-btn event-nav-btn event-form__item">Out of office</button></li>
+                    <li><button class="event-btn event-nav-btn event-form__item">Work location</button></li>
+                    <li><button class="event-btn event-nav-btn event-form__item">Task</button></li>
+                    <li><button class="event-btn event-nav-btn event-form__item">Appointment schedule</button></li>
                 </ul>
             </nav>
 
             <span>
                 <label>
-                    <input class="event--set-date" type="datetime-local">
+                    <input class="event--set-date event-form__item" type="date">
+                    <input class="event--set-date event-form__item" type="time">
+                    <span>-</span>
+                    <input class="event--set-date event-form__item" type="time">
                 </label>
             </span>
 
             <span class="event-checkbox">
                 <label class="event-checkbox__label">
-                    <input class="event-checkbox__input" type="checkbox"></input>
+                    <input class="event-checkbox__input event-form__item" type="checkbox"></input>
                     <span>All day</span>
                 </label>
-                <button class="event-btn">Time zone</button>
+                <button class="event-btn event-nav-btn event-form__item">Time zone</button>
             </span>
 
             <label>
-                <select class="event-select">
-                    <option value="does-not-repeat">Does not repeat</option>
+                <select class="event-select event-form__item">
+                    <option value="does-not-repeat ">Does not repeat</option>
                     <option value="daily">Daily</option>
                     <option value="weekly">Weekly</option>
                 </select>
             </label>
 
-            <button class="event-btn btn--blue-font">Find a time</button>
+            <button class="event-btn event-time-btn event-form__item">Find a time</button>
 
             <label>
-                <input class="event-checkbox__guest" type="text" placeholder="Add guest">
+                <input class="event-checkbox__guest event-form__item" type="text" placeholder="Add guest">
             </label>
 
             <label>
-                <select class="remote-type">
+                <select class="remote-type event-form__item">
                     <option value="">Add video conferencing</option>
                     <option value="remote-google">Google meet</option>
                     <option value="remote-zoom">Zoom Meeting</option>
@@ -485,10 +488,10 @@
             </label>
 
             <label>
-                <input class="event-checkbox__location" type="text" placeholder="Add rooms or location">
+                <input class="event-checkbox__location event-form__item" type="text" placeholder="Add rooms or location">
             </label>
 
-            <div class="event-modal__description--wrapper">
+            <div class="event-modal__description--wrapper event-form__item">
                 <label class="event-modal__description-label">Add
                     <input class="event-modal__input-description" type="text" placeholder="description">
                 </label>
@@ -500,7 +503,7 @@
                 </label>
             </div>
 
-            <span>Ieva St</span>
+            <span class="event-creator__name">Ieva Staseviciute</span>
             <ul class="event-creator__settings">
                 <li>Busy</li>
                 <li>Default visibility</li>
@@ -509,8 +512,8 @@
         </form>
 
         <div class="event__button--wrapper">
-            <button class="btn ">More options</button>
-            <button class="btn btn--border btn--blue">Save</button>
+            <button class="event-btn event-more-btn">More options</button>
+            <button class="event-btn event-save-btn">Save</button>
         </div>
     </dialog>
 
