@@ -240,7 +240,8 @@ li {
     display: none;
 }
 
-.event__form {
+.event__form,
+.out-of-office__form {
     display: flex;
     flex-direction: column;
     padding-top: 24px;
@@ -454,4 +455,13 @@ li {
     display: flex;
     justify-content: end;
     padding: 0 16px 10px 0;
+}
+
+
+
+/* out of office  */
+.office-desc{
+    width: 100%;
+    height: 34px;
+    resize: none
 }

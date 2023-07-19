@@ -439,7 +439,7 @@
 
             <nav class="event-nav">
                 <ul class="event-nav-list">
-                    <li><button class="event-btn event-nav-btn event-form__item">Event</button></li>
+                    <li><button class="event-btn event-nav-btn event-nav-btn--open event-form__item">Event</button></li>
                     <li><button class="event-btn event-nav-btn event-form__item">Focus time</button></li>
                     <li><button class="event-btn event-nav-btn event-form__item">Out of office</button></li>
                     <li><button class="event-btn event-nav-btn event-form__item">Work location</button></li>
@@ -488,7 +488,8 @@
             </label>
 
             <label>
-                <input class="event-checkbox__location event-form__item" type="text" placeholder="Add rooms or location">
+                <input class="event-checkbox__location event-form__item" type="text"
+                    placeholder="Add rooms or location">
             </label>
 
             <div class="event-modal__description--wrapper event-form__item">
@@ -509,6 +510,31 @@
                 <li>Default visibility</li>
                 <li>Notify 10 minutes before</li>
             </ul>
+        </form>
+
+        <form class="out-of-office__form">
+            <span>
+                <label>
+                    <input class="event--set-date event-form__item" type="date">
+                    <input class="event--set-date event-form__item" type="time">
+                    <span>-</span>
+                    <input class="event--set-date event-form__item" type="time">
+                </label>
+            </span>
+
+            <label>
+                <input type="checkbox">Automatically decline meetings</input>
+            </label>
+
+            <label>
+                <input type="radio">Only new meeting invitations</input>
+                <input type="radio">New and existing meetings</input>
+            </label>
+
+            <label>Description
+                <textarea class="office-desc" maxlength="50" placeholder="..."></textarea>
+            </label>
+
         </form>
 
         <div class="event__button--wrapper">

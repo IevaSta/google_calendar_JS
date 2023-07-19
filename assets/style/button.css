@@ -29,6 +29,11 @@ time zone button
     background-color: var(--color-tertiary);
 }
 
+.event-nav-btn--open{
+    color: var(--color-accent-dark);
+    background-color: var(--color-active);
+} 
+
 /* find time button */
 .event-time-btn {
     color: var(--color-accent-dark);
