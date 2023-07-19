@@ -370,16 +370,16 @@ li {
 }
 
 .event-checkbox__guest:hover,
-.event-checkbox__location:hover,
-.event-checkbox__guest:focus,
-.event-checkbox__location:focus {
+.event-checkbox__location:hover {
     cursor: pointer;
     background-color: var(--color-hover);
-    border-bottom: 2px solid var(--color-accent-dark);
     caret-color: var(--color-accent-dark);
 }
 
-
+.event-checkbox__guest:focus,
+.event-checkbox__location:focus {
+    border-bottom: 2px solid var(--color-accent-dark);
+}
 
 .remote-type {
     width: 250px;
@@ -390,7 +390,7 @@ li {
     padding: 10px;
     padding-inline-start: 10px;
     background-color: var(--color-accent-dark);
-    color: var(--color-font);
+    color: var(--color-light);
     cursor: pointer;
     font-size: 14px;
 
@@ -404,26 +404,42 @@ li {
 
 .remote-type:hover,
 .remote-type:focus {
-    background-color: var(--color-tertiary);
+    background-color: var(--color-accent-hover);
 }
 
+.event-modal__description--wrapper {
+    width: 100%;
 
+    margin-inline-start: -10px;
+    padding: 10px;
+    padding-inline-start: 10px;
+
+    font-size: 14px;
+    bottom: 0;
+    border-radius: 5px;
+    color: var(--color-secondary);
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.event-modal__description--wrapper:hover{
+    cursor: pointer;
+    background-color: var(--color-hover);
+}
 
 .event-modal__input-description {
+    width: 80px;
     outline: none;
     border: none;
-    font-size: 16px;
-    line-height: 1.4;
-}
-
-.event-modal__input-label-file,
-.event-modal__input-description::placeholder {
-    font-size: 16px;
-    bottom: 0;
-    color: var(--color-secondary);
+    font-size: 14px;
+    background-color: transparent;
     text-align: center;
 }
 
+.event-modal__description-label{
+    cursor: pointer;
+}
 
 .event-modal__input-file {
     display: none;
@@ -431,11 +447,21 @@ li {
 
 .event-modal__input-description:hover,
 .event-modal__input-description:focus,
-.event-modal__input-label-file:hover,
-.event-modal__input-label-file:focus {
+.event-modal__input-label:hover,
+.event-modal__input-label:focus {
     cursor: pointer;
     text-decoration: underline;
 }
+
+.event-modal__input-label{
+    padding-inline-start: 10px;
+}
+
+
+
+
+
+
 
 .event__button--wrapper {
     display: flex;
