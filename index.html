@@ -425,8 +425,8 @@
     </main>
 
     <!-- Event creation modal layout -->
-    <dialog class="event-modal">
-        <!-- <dialog class="event-modal hidden"> -->
+    <!-- <dialog class="event-modal"> -->
+        <section class="event-modal hidden">
 
         <header class="event-modal__header">
             <button class="close-event-modal btn">
@@ -439,101 +439,98 @@
 
             <nav class="event-nav">
                 <ul class="event-nav-list">
-                    <li><button class="event-btn event-nav-btn event-nav-btn--open event-form__item">Event</button></li>
+                    <li><button
+                            class="tab-btn open-event-form event-btn event-nav-btn event-form__item" data-target="event">Event</button>
+                    </li>
                     <li><button class="event-btn event-nav-btn event-form__item">Focus time</button></li>
-                    <li><button class="event-btn event-nav-btn event-form__item">Out of office</button></li>
+                    <li><button class="tab-btn open-office-form event-btn event-nav-btn event-form__item" data-target="office">Out of
+                            office</button></li>
                     <li><button class="event-btn event-nav-btn event-form__item">Work location</button></li>
                     <li><button class="event-btn event-nav-btn event-form__item">Task</button></li>
                     <li><button class="event-btn event-nav-btn event-form__item">Appointment schedule</button></li>
                 </ul>
             </nav>
 
-            <span>
+            <section class="tab-content" data-tab="event">
+                <span>
+                    <label>
+                        <input class="event--set-date event-form__item" type="date">
+                        <input class="event--set-date event-form__item" type="time">
+                        <span>-</span>
+                        <input class="event--set-date event-form__item" type="time">
+                    </label>
+                </span>
+
+                <span class="event-checkbox">
+                    <label class="event-checkbox__label">
+                        <input class="event-checkbox__input event-form__item" type="checkbox"></input>
+                        <span>All day</span>
+                    </label>
+                    <button class="event-btn event-nav-btn event-form__item">Time zone</button>
+                </span>
+
                 <label>
-                    <input class="event--set-date event-form__item" type="date">
-                    <input class="event--set-date event-form__item" type="time">
-                    <span>-</span>
-                    <input class="event--set-date event-form__item" type="time">
-                </label>
-            </span>
-
-            <span class="event-checkbox">
-                <label class="event-checkbox__label">
-                    <input class="event-checkbox__input event-form__item" type="checkbox"></input>
-                    <span>All day</span>
-                </label>
-                <button class="event-btn event-nav-btn event-form__item">Time zone</button>
-            </span>
-
-            <label>
-                <select class="event-select event-form__item">
-                    <option value="does-not-repeat ">Does not repeat</option>
-                    <option value="daily">Daily</option>
-                    <option value="weekly">Weekly</option>
-                </select>
-            </label>
-
-            <button class="event-btn event-time-btn event-form__item">Find a time</button>
-
-            <label>
-                <input class="event-checkbox__guest event-form__item" type="text" placeholder="Add guest">
-            </label>
-
-            <label>
-                <select class="remote-type event-form__item">
-                    <option value="">Add video conferencing</option>
-                    <option value="remote-google">Google meet</option>
-                    <option value="remote-zoom">Zoom Meeting</option>
-                </select>
-            </label>
-
-            <label>
-                <input class="event-checkbox__location event-form__item" type="text"
-                    placeholder="Add rooms or location">
-            </label>
-
-            <div class="event-modal__description--wrapper event-form__item">
-                <label class="event-modal__description-label">Add
-                    <input class="event-modal__input-description" type="text" placeholder="description">
+                    <select class="event-select event-form__item">
+                        <option value="does-not-repeat ">Does not repeat</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                    </select>
                 </label>
 
-                <span>or</span>
+                <button class="event-btn event-time-btn event-form__item">Find a time</button>
 
-                <label class="event-modal__input-label">attachments
-                    <input class="event-modal__input-file" type="file">
-                </label>
-            </div>
-
-            <span class="event-creator__name">Ieva Staseviciute</span>
-            <ul class="event-creator__settings">
-                <li>Busy</li>
-                <li>Default visibility</li>
-                <li>Notify 10 minutes before</li>
-            </ul>
-        </form>
-
-        <form class="out-of-office__form">
-            <span>
                 <label>
-                    <input class="event--set-date event-form__item" type="date">
-                    <input class="event--set-date event-form__item" type="time">
-                    <span>-</span>
-                    <input class="event--set-date event-form__item" type="time">
+                    <input class="event-checkbox__guest event-form__item" type="text" placeholder="Add guest">
                 </label>
-            </span>
 
-            <label>
-                <input type="checkbox">Automatically decline meetings</input>
-            </label>
+                <label>
+                    <select class="remote-type event-form__item">
+                        <option value="">Add video conferencing</option>
+                        <option value="remote-google">Google meet</option>
+                        <option value="remote-zoom">Zoom Meeting</option>
+                    </select>
+                </label>
 
-            <label>
-                <input type="radio">Only new meeting invitations</input>
-                <input type="radio">New and existing meetings</input>
-            </label>
+                <label>
+                    <input class="event-checkbox__location event-form__item" type="text"
+                        placeholder="Add rooms or location">
+                </label>
 
-            <label>Description
-                <textarea class="office-desc" maxlength="50" placeholder="..."></textarea>
-            </label>
+                <div class="event-modal__description--wrapper event-form__item">
+                    <label class="event-modal__description-label">Add
+                        <input class="event-modal__input-description" type="text" placeholder="description">
+                    </label>
+
+                    <span>or</span>
+
+                    <label class="event-modal__input-label">attachments
+                        <input class="event-modal__input-file" type="file">
+                    </label>
+                </div>
+
+                <span class="event-creator__name">Ieva Staseviciute</span>
+                <ul class="event-creator__settings">
+                    <li>Busy</li>
+                    <li>Default visibility</li>
+                    <li>Notify 10 minutes before</li>
+                </ul>
+            </section>
+
+            <section class="tab-content" data-tab="office">
+                <span>
+                    <label>
+                        <input type="checkbox">Automatically decline meetings</input>
+                    </label>
+
+                    <label>
+                        <input type="radio">Only new meeting invitations</input>
+                        <input type="radio">New and existing meetings</input>
+                    </label>
+
+                    <label>Description
+                        <textarea class="office-desc" maxlength="50" placeholder="..."></textarea>
+                    </label>
+            </section>
 
         </form>
 
@@ -541,7 +538,7 @@
             <button class="event-btn event-more-btn">More options</button>
             <button class="event-btn event-save-btn">Save</button>
         </div>
-    </dialog>
+    </section>
 
     <script src="./js/script.js" type="module" defer></script>
 </body>

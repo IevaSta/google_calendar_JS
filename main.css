@@ -240,8 +240,7 @@ li {
     display: none;
 }
 
-.event__form,
-.out-of-office__form {
+.event__form{
     display: flex;
     flex-direction: column;
     padding-top: 24px;
