@@ -1,13 +1,21 @@
 :root {
     /* colors */
-    --primary: #3c4043;
-    --secondary: #70757a;
-    --light: #ffffff;
+    --color-primary: #3c4043;
+    --color-secondary: #70757a;
+    --color-tertiary: rgb(218,220,224);
+    --color-light: #ffffff;
 
-    --border: rgb(218,220,224);
-    --hover: rgb(237, 240, 245);
+    --color-medium: rgb(241,243,244);
 
-    --accent-dark: #1a73e8;
-    --accent-hover: rgb(24,90,188);
-    --accent-light: #039be5;
+    --color-border: rgb(218,220,224);
+    --color-hover: rgb(237, 240, 245);
+    --color-active: rgb(210,227,252);
+    
+    --color-accent-dark: #1a73e8;
+    --color-accent-hover: rgb(24,90,188);
+    --color-accent-active-dark: rgb(20, 67, 137);
+    --color-accent-light: #039be5;
+
+    --color-font: rgb(60,64,67);
+    --color-font-light: rgb(95,99,104);
 }

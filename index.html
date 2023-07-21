@@ -7,7 +7,7 @@
     <!-- font  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:wght@400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
 
     <!-- style  -->
@@ -31,7 +31,7 @@
                 Calendar
             </h1>
 
-            <button class="btn btn--border">Today</button>
+            <button class="btn btn--border" id="today-test">Today</button>
             <button class="btn">
                 <img src="./assets/svg/arrow-left.svg" alt="Arrow to go back one step." />
             </button>
@@ -51,7 +51,7 @@
 
     <main class="main-wrapper">
         <aside class="side-wrapper">
-            <button class="btn btn--border">
+            <button class="open-event-modal btn btn--border">
                 <img src="./assets/svg/add.svg" alt="Google add icon.">
                 Create</button>
 
@@ -137,60 +137,112 @@
             <span class="lg-calendar__gmt">gmt+03</span>
 
             <ul class="lg-calendar__column">
-                <li>
+                <li class="lg-calendar__column-list">
                     <span>sun</span>
                     <span>9</span>
+                    <span class="lg-calendar__column-list--border"></span>
                 </li>
-                <li>
+                <li class="lg-calendar__column-list">
                     <span>mon</span>
                     <span>10</span>
+                    <span class="lg-calendar__column-list--border"></span>
                 </li>
-                <li>
+                <li class="lg-calendar__column-list">
                     <span>tue</span>
                     <span>11</span>
+                    <span class="lg-calendar__column-list--border"></span>
                 </li>
-                <li>
+                <li class="lg-calendar__column-list">
                     <span>wed</span>
                     <span>12</span>
+                    <span class="lg-calendar__column-list--border"></span>
                 </li>
-                <li>
+                <li class="lg-calendar__column-list">
                     <span>thu</span>
                     <span>13</span>
+                    <span class="lg-calendar__column-list--border"></span>
                 </li>
-                <li>
+                <li class="lg-calendar__column-list">
                     <span>fri</span>
                     <span>14</span>
+                    <span class="lg-calendar__column-list--border"></span>
                 </li>
-                <li>
+                <li class="lg-calendar__column-list">
                     <span>sat</span>
                     <span>15</span>
                 </li>
             </ul>
 
-            <ul class="lg-calendar__hour-wrapper">
-                <li>1 am</li>
-                <li>2 am</li>
-                <li>3 am</li>
-                <li>4 am</li>
-                <li>5 am</li>
-                <li>6 am</li>
-                <li>7 am</li>
-                <li>8 am</li>
-                <li>9 am</li>
-                <li>10 am</li>
-                <li>11 am</li>
-                <li>12 pm</li>
-                <li>1 pm</li>
-                <li>2 pm</li>
-                <li>3 pm</li>
-                <li>4 pm</li>
-                <li>5 pm</li>
-                <li>6 pm</li>
-                <li>7 pm</li>
-                <li>8 pm</li>
-                <li>9 pm</li>
-                <li>10 pm</li>
-                <li>11 pm</li>
+            <ul class="lg-calendar__hour-list-wrapper">
+                <li>
+                    <span>1 am</span>
+                </li>
+                <li>
+                    <span>2 am</span>
+                </li>
+                <li>
+                    <span>3 am</span>
+                </li>
+                <li>
+                    <span>4 am</span>
+                </li>
+                <li>
+                    <span>5 am</span>
+                </li>
+                <li>
+                    <span>6 am</span>
+                </li>
+                <li>
+                    <span>7 am</span>
+                </li>
+                <li>
+                    <span>8 am</span>
+                </li>
+                <li>
+                    <span>9 am</span>
+                </li>
+                <li>
+                    <span>10 am</span>
+                </li>
+                <li>
+                    <span>11 am</span>
+                </li>
+                <li>
+                    <span>12 pm</span>
+                </li>
+                <li>
+                    <span>1 pm</span>
+                </li>
+                <li>
+                    <span>2 pm</span>
+                </li>
+                <li>
+                    <span>3 pm</span>
+                </li>
+                <li>
+                    <span>4 pm</span>
+                </li>
+                <li>
+                    <span>5 pm</span>
+                </li>
+                <li>
+                    <span>6 pm</span>
+                </li>
+                <li>
+                    <span>7 pm</span>
+                </li>
+                <li>
+                    <span>8 pm</span>
+                </li>
+                <li>
+                    <span>9 pm</span>
+                </li>
+                <li>
+                    <span>10 pm</span>
+                </li>
+                <li>
+                    <span>11 pm</span>
+                </li>
             </ul>
 
             <ul class="lg-calendar__cell-list">
@@ -369,16 +421,126 @@
                 <li class="lg-calendar__cell-item"></li>
                 <li class="lg-calendar__cell-item"></li>
             </ul>
-
-
         </section>
-
-
-
     </main>
 
+    <!-- Event creation modal layout -->
+    <!-- <dialog class="event-modal"> -->
+        <section class="event-modal hidden">
 
+        <header class="event-modal__header">
+            <button class="close-event-modal btn">
+                <img class="close-event-icon" src="./assets/svg/close.svg" alt="Close icon.">
+            </button>
+        </header>
 
+        <form class="event__form">
+            <input class="event__form-header" type="text" placeholder="Add title">
+
+            <nav class="event-nav">
+                <ul class="event-nav-list">
+                    <li><button
+                            class="tab-btn open-event-form event-btn event-nav-btn event-form__item" data-target="event">Event</button>
+                    </li>
+                    <li><button class="event-btn event-nav-btn event-form__item">Focus time</button></li>
+                    <li><button class="tab-btn open-office-form event-btn event-nav-btn event-form__item" data-target="office">Out of
+                            office</button></li>
+                    <li><button class="event-btn event-nav-btn event-form__item">Work location</button></li>
+                    <li><button class="event-btn event-nav-btn event-form__item">Task</button></li>
+                    <li><button class="event-btn event-nav-btn event-form__item">Appointment schedule</button></li>
+                </ul>
+            </nav>
+
+            <section class="tab-content" data-tab="event">
+                <span>
+                    <label>
+                        <input class="event--set-date event-form__item" type="date">
+                        <input class="event--set-date event-form__item" type="time">
+                        <span>-</span>
+                        <input class="event--set-date event-form__item" type="time">
+                    </label>
+                </span>
+
+                <span class="event-checkbox">
+                    <label class="event-checkbox__label">
+                        <input class="event-checkbox__input event-form__item" type="checkbox"></input>
+                        <span>All day</span>
+                    </label>
+                    <button class="event-btn event-nav-btn event-form__item">Time zone</button>
+                </span>
+
+                <label>
+                    <select class="event-select event-form__item">
+                        <option value="does-not-repeat ">Does not repeat</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                    </select>
+                </label>
+
+                <button class="event-btn event-time-btn event-form__item">Find a time</button>
+
+                <label>
+                    <input class="event-checkbox__guest event-form__item" type="text" placeholder="Add guest">
+                </label>
+
+                <label>
+                    <select class="remote-type event-form__item">
+                        <option value="">Add video conferencing</option>
+                        <option value="remote-google">Google meet</option>
+                        <option value="remote-zoom">Zoom Meeting</option>
+                    </select>
+                </label>
+
+                <label>
+                    <input class="event-checkbox__location event-form__item" type="text"
+                        placeholder="Add rooms or location">
+                </label>
+
+                <div class="event-modal__description--wrapper event-form__item">
+                    <label class="event-modal__description-label">Add
+                        <input class="event-modal__input-description" type="text" placeholder="description">
+                    </label>
+
+                    <span>or</span>
+
+                    <label class="event-modal__input-label">attachments
+                        <input class="event-modal__input-file" type="file">
+                    </label>
+                </div>
+
+                <span class="event-creator__name">Ieva Staseviciute</span>
+                <ul class="event-creator__settings">
+                    <li>Busy</li>
+                    <li>Default visibility</li>
+                    <li>Notify 10 minutes before</li>
+                </ul>
+            </section>
+
+            <section class="tab-content" data-tab="office">
+                <span>
+                    <label>
+                        <input type="checkbox">Automatically decline meetings</input>
+                    </label>
+
+                    <label>
+                        <input type="radio">Only new meeting invitations</input>
+                        <input type="radio">New and existing meetings</input>
+                    </label>
+
+                    <label>Description
+                        <textarea class="office-desc" maxlength="50" placeholder="..."></textarea>
+                    </label>
+            </section>
+
+        </form>
+
+        <div class="event__button--wrapper">
+            <button class="event-btn event-more-btn">More options</button>
+            <button class="event-btn event-save-btn">Save</button>
+        </div>
+    </section>
+
+    <script src="./js/script.js" type="module" defer></script>
 </body>
 
 </html>
