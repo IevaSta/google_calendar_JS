@@ -1,0 +1,20 @@
+.select {
+    width: 85px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    outline: none;
+    margin-inline-start: -10px;
+    padding: 10px;
+    padding-inline-start: 10px;
+    background-color: transparent;
+    color: var(--color-font);
+    cursor: pointer;
+    font-size: 14px;
+
+    /* arrow style */
+    appearance: none;
+    background-image: url(../svg/arrow-down.svg);
+    background-repeat: no-repeat;
+    background-position-x: 85%;
+    background-position-y: 50%;
+}
