@@ -1,0 +1,68 @@
+.button {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    border: unset;
+    background-color: var(--color-light);
+    cursor: pointer;
+    color: var(--color-font);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.round{
+    height: 48px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.round:hover,
+.round:focus,
+.round:active{
+    background-color: var(--color-burger-hover);
+}
+
+.rectangle{
+    margin-inline-start: 55px;
+    margin-inline-end: 20px;
+    padding: 8px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}
+
+.arrow{
+    width: 30px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.rectangle:hover,
+.arrow:hover{
+    background-color: var(--color-medium-light);
+}
+
+.rectangle:focus,
+.arrow:focus{
+    background-color: var(--color-burger-hover);
+}
+
+.rectangle:active,
+.arrow:active{
+    background-color: var( --color-tertiary);
+}
+
+.btn--border {
+    border: 1px solid var(--color-border);
+    border-radius: .25rem;
+}
+
+.btn--round:hover {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: var(--color-hover);
+}

@@ -1,4 +1,7 @@
-@import "/assets/style/button.css";
+@import "/assets/style/reset.css";
+@import "/assets/style/vars.css";
+@import "/assets/style/calendar-buttons.css";
+@import "/assets/style/modal-button.css";
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -13,10 +16,8 @@ li {
 
 /* header */
 .header-wrapper {
-    width: 100%;
     height: 60px;
-    padding-left: 35px;
-    padding-right: 35px;
+    padding: 8px;
     border-bottom: 1px solid var(--color-border);
 
     display: flex;
@@ -26,42 +27,28 @@ li {
 
 .header__nav-wrapper {
     display: flex;
-    gap: 30px;
+    align-items: center;
 }
 
-.calendar-logo {
+.header-logo {
     width: 40px;
     height: 40px;
+    margin-inline-start: 10px;
 }
 
-.btn {
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: 40px;
-    border: unset;
-    background-color: #FFFFFF;
-    cursor: pointer;
-    color: var(--color-font);
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
+.header-title,
+.header-subtitle{
+    font-size: 22px;
+    font-weight: 400;
+    margin-inline-start: 10px;
 }
 
-.btn--border {
-    border: 1px solid var(--color-border);
-    border-radius: .25rem;
+.header-subtitle{
+    margin-inline-start: 25px;
 }
 
-.btn--round:hover {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-}
-
-.btn:hover,
-.btn:focus {
-    background-color: var(--color-hover);
+.header-arrow{
+    height: 15px;
 }
 
 /* main wrapper */
