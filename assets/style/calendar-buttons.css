@@ -1,7 +1,7 @@
 .button {
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
     border: unset;
     background-color: var(--color-light);
     cursor: pointer;
@@ -10,7 +10,7 @@
     font-weight: 500;
 }
 
-.round{
+.round {
     height: 48px;
     aspect-ratio: 1;
     border-radius: 50%;
@@ -18,11 +18,11 @@
 
 .round:hover,
 .round:focus,
-.round:active{
+.round:active {
     background-color: var(--color-burger-hover);
 }
 
-.rectangle{
+.rectangle {
     margin-inline-start: 55px;
     margin-inline-end: 20px;
     padding: 8px 12px;
@@ -30,14 +30,14 @@
     border-radius: 4px;
 }
 
-.arrow{
+.arrow {
     width: 30px;
     aspect-ratio: 1;
     border-radius: 50%;
 }
 
 .rectangle:hover,
-.arrow:hover{
+.arrow:hover {
     background-color: var(--color-medium-light);
 }
 
@@ -47,22 +47,38 @@
 }
 
 .rectangle:active,
-.arrow:active{
-    background-color: var( --color-tertiary);
+.arrow:active {
+    background-color: var(--color-tertiary);
 }
 
-.btn--border {
-    border: 1px solid var(--color-border);
-    border-radius: .25rem;
+.oval {
+    justify-content: start;
+    width: 150px;
+    height: 48px;
+    padding: 8px 12px;
+    border-radius: 50px;
+
+    /* shadow */
+    box-shadow: 0px 1px 3px 1px rgba(156, 156, 156, 0.5);
+
+    /* arrow style */
+    appearance: none;
+    background-image: url(../svg/arrow-down.svg);
+    background-repeat: no-repeat;
+    background-position-x: 85%;
+    background-position-y: 50%;
 }
 
-.btn--round:hover {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
+.oval>img {
+    margin-inline-end: 10px;
 }
 
-.btn:hover,
-.btn:focus {
-    background-color: var(--color-hover);
+.oval:hover{
+    background-color: var(--color-medium-light);
+    box-shadow: 0px 4px 4px 0px rgba(60,64,67,0.3),0px 8px 12px 6px rgba(60,64,67,0.15);;
+}
+
+.oval:focus,
+.oval:active {
+    background-color: var(--color-burger-hover);
 }
