@@ -1,4 +1,4 @@
-import {setTitleDate} from "../components/setTitleDate.js";
+import {doTitleDate} from "../components/doTitleDate.js";
 
 const eventModal = document.querySelector('.event-modal');
 const eventForm = document.querySelector('event__form');
@@ -56,6 +56,7 @@ tabButtons.forEach((button) => {
     })
 })
 
-setTitleDate();
+doTitleDate(document.querySelector('#title_main'));
+
 
 
