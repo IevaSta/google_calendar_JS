@@ -1,3 +1,5 @@
+import {setTitleDate} from "../components/setTitleDate.js";
+
 const eventModal = document.querySelector('.event-modal');
 const eventForm = document.querySelector('event__form');
 const officeForm = document.querySelector('out-of-office__form');
@@ -53,4 +55,7 @@ tabButtons.forEach((button) => {
         tab.classList.remove('hidden');
     })
 })
+
+setTitleDate();
+
 
