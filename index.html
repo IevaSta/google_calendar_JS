@@ -22,8 +22,7 @@
             <button class="button round">
                 <img src="./assets/svg/burger.svg" alt="Burger image.">
             </button>
-            <img class="header-logo"
-                src="https://ssl.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_13_2x.png"
+            <img class="header-logo" src="https://ssl.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_13_2x.png"
                 alt="Google calendar logo.">
             <h1 class="header-title">Calendar</h1>
 
@@ -34,7 +33,7 @@
             <button class="button arrow">
                 <img class="header-arrow" src="./assets/svg/arrow-right.svg" alt="Arrow to go forward one step." />
             </button>
-            <h2 class="header-subtitle">Month 2023</h2>
+            <h2 id="title_main" class="header-subtitle">Month 2023</h2>
 
         </div>
 
@@ -55,14 +54,14 @@
             <section class="side-calendar">
                 <div class="side-calendar__header">
                     <h3">Month Year</h3>
-                    <div class="side-calendar__header--btn-wrapper">
-                        <button class="button">
-                            <img src="./assets/svg/arrow-left.svg" alt="Arrow to go back one step." />
-                        </button>
-                        <button class="button">
-                            <img src="./assets/svg/arrow-right.svg" alt="Arrow to go forward one step." />
-                        </button>
-                    </div>
+                        <div class="side-calendar__header--btn-wrapper">
+                            <button class="button">
+                                <img src="./assets/svg/arrow-left.svg" alt="Arrow to go back one step." />
+                            </button>
+                            <button class="button">
+                                <img src="./assets/svg/arrow-right.svg" alt="Arrow to go forward one step." />
+                            </button>
+                        </div>
                 </div>
 
                 <div class="side-calendar__body">
@@ -423,7 +422,7 @@
 
     <!-- Event creation modal layout -->
     <!-- <dialog class="event-modal"> -->
-        <section class="event-modal hidden">
+    <section class="event-modal hidden">
 
         <header class="event-modal__header">
             <button class="close-event-modal btn">
@@ -436,11 +435,12 @@
 
             <nav class="event-nav">
                 <ul class="event-nav-list">
-                    <li><button
-                            class="tab-btn open-event-form event-btn event-nav-btn event-form__item" data-target="event">Event</button>
+                    <li><button class="tab-btn open-event-form event-btn event-nav-btn event-form__item"
+                            data-target="event">Event</button>
                     </li>
                     <li><button class="event-btn event-nav-btn event-form__item">Focus time</button></li>
-                    <li><button class="tab-btn open-office-form event-btn event-nav-btn event-form__item" data-target="office">Out of
+                    <li><button class="tab-btn open-office-form event-btn event-nav-btn event-form__item"
+                            data-target="office">Out of
                             office</button></li>
                     <li><button class="event-btn event-nav-btn event-form__item">Work location</button></li>
                     <li><button class="event-btn event-nav-btn event-form__item">Task</button></li>
