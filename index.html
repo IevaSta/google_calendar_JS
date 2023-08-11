@@ -11,8 +11,6 @@
         rel="stylesheet">
 
     <!-- style  -->
-    <link rel="stylesheet" href="./assets/style/reset.css">
-    <link rel="stylesheet" href="./assets/style/vars.css">
     <link rel="stylesheet" href="./main.css">
 
     <title>Wix calendar</title>
@@ -21,27 +19,26 @@
 <body>
     <header class="header-wrapper">
         <div class="header__nav-wrapper">
-            <button class="btn btn--round">
+            <button class="button round">
                 <img src="./assets/svg/burger.svg" alt="Burger image.">
             </button>
-            <h1>
-                <img class="calendar-logo"
-                    src="https://ssl.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_13_2x.png"
-                    alt="Google calendar logo.">
-                Calendar
-            </h1>
+            <img class="header-logo"
+                src="https://ssl.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_13_2x.png"
+                alt="Google calendar logo.">
+            <h1 class="header-title">Calendar</h1>
 
-            <button class="btn btn--border" id="today-test">Today</button>
-            <button class="btn backward">
-                <img src="./assets/svg/arrow-left.svg" alt="Arrow to go back one step." />
+            <button class="button rectangle">Today</button>
+            <button class="button arrow">
+                <img class="header-arrow" src="./assets/svg/arrow-left.svg" alt="Arrow to go back one step." />
             </button>
-            <button class="btn forward">
-                <img src="./assets/svg/arrow-right.svg" alt="Arrow to go forward one step." />
+            <button class="button arrow">
+                <img class="header-arrow" src="./assets/svg/arrow-right.svg" alt="Arrow to go forward one step." />
             </button>
-            <h2 id="title_main">Month year</h2>
+            <h2 class="header-subtitle">Month 2023</h2>
+
         </div>
 
-        <select class="btn btn--border" name="time-range" id="time-range">
+        <select class="select" name="time-range" id="time-range">
             <option value="day">Day</option>
             <option value="week">Week</option>
             <option value="month">Month</option>
@@ -51,7 +48,7 @@
 
     <main class="main-wrapper">
         <aside class="side-wrapper">
-            <button class="open-event-modal btn btn--border">
+            <button class="open-event-modal button oval">
                 <img src="./assets/svg/add.svg" alt="Google add icon.">
                 Create</button>
 
@@ -59,10 +56,10 @@
                 <div class="side-calendar__header">
                     <h3">Month Year</h3>
                     <div class="side-calendar__header--btn-wrapper">
-                        <button class="btn">
+                        <button class="button">
                             <img src="./assets/svg/arrow-left.svg" alt="Arrow to go back one step." />
                         </button>
-                        <button class="btn">
+                        <button class="button">
                             <img src="./assets/svg/arrow-right.svg" alt="Arrow to go forward one step." />
                         </button>
                     </div>
