@@ -53,15 +53,17 @@
 
             <section class="side-calendar">
                 <div class="side-calendar__header">
-                    <h3">Month Year</h3>
-                        <div class="side-calendar__header--btn-wrapper">
-                            <button class="button">
-                                <img src="./assets/svg/arrow-left.svg" alt="Arrow to go back one step." />
-                            </button>
-                            <button class="button">
-                                <img src="./assets/svg/arrow-right.svg" alt="Arrow to go forward one step." />
-                            </button>
-                        </div>
+                    <h3>Month Year</h3>
+                    <div class="side-calendar__header--btn-wrapper">
+                        <button class="button arrow">
+                            <img class="side-calendar__arrow" src="./assets/svg/arrow-left.svg"
+                                alt="Arrow to go back one step." />
+                        </button>
+                        <button class="button arrow">
+                            <img class="side-calendar__arrow" src="./assets/svg/arrow-right.svg"
+                                alt="Arrow to go forward one step." />
+                        </button>
+                    </div>
                 </div>
 
                 <div class="side-calendar__body">
@@ -130,114 +132,118 @@
 
         <section class="lg-calendar-wrapper">
 
-            <span class="lg-calendar__gmt">gmt+03</span>
+            <div class="lg-calendar__gmt--wrapper">
+                <span class="lg-calendar__gmt">gmt+03</span>
+                <span class="lg-calendar__gmt--border"></span>
+            </div>
 
             <ul class="lg-calendar__column">
                 <li class="lg-calendar__column-list">
-                    <span>sun</span>
-                    <span>9</span>
+                    <span class="week-day active">sun</span>
+                    <span class="month-day active">9</span>
                     <span class="lg-calendar__column-list--border"></span>
                 </li>
                 <li class="lg-calendar__column-list">
-                    <span>mon</span>
-                    <span>10</span>
+                    <span class="week-day">mon</span>
+                    <span class="month-day">10</span>
                     <span class="lg-calendar__column-list--border"></span>
                 </li>
                 <li class="lg-calendar__column-list">
-                    <span>tue</span>
-                    <span>11</span>
+                    <span class="week-day">tue</span>
+                    <span class="month-day">11</span>
                     <span class="lg-calendar__column-list--border"></span>
                 </li>
                 <li class="lg-calendar__column-list">
-                    <span>wed</span>
-                    <span>12</span>
+                    <span class="week-day">wed</span>
+                    <span class="month-day">12</span>
                     <span class="lg-calendar__column-list--border"></span>
                 </li>
                 <li class="lg-calendar__column-list">
-                    <span>thu</span>
-                    <span>13</span>
+                    <span class="week-day">thu</span>
+                    <span class="month-day">13</span>
                     <span class="lg-calendar__column-list--border"></span>
                 </li>
                 <li class="lg-calendar__column-list">
-                    <span>fri</span>
-                    <span>14</span>
+                    <span class="week-day">fri</span>
+                    <span class="month-day">14</span>
                     <span class="lg-calendar__column-list--border"></span>
                 </li>
                 <li class="lg-calendar__column-list">
-                    <span>sat</span>
-                    <span>15</span>
+                    <span class="week-day">sat</span>
+                    <span class="month-day">15</span>
+                    <span class="lg-calendar__column-list--no-border"></span>
                 </li>
             </ul>
 
             <ul class="lg-calendar__hour-list-wrapper">
-                <li>
-                    <span>1 am</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">1 am</span>
                 </li>
-                <li>
-                    <span>2 am</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">2 am</span>
                 </li>
-                <li>
-                    <span>3 am</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">3 am</span>
                 </li>
-                <li>
-                    <span>4 am</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">4 am</span>
                 </li>
-                <li>
-                    <span>5 am</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">5 am</span>
                 </li>
-                <li>
-                    <span>6 am</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">6 am</span>
                 </li>
-                <li>
-                    <span>7 am</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">7 am</span>
                 </li>
-                <li>
-                    <span>8 am</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">8 am</span>
                 </li>
-                <li>
-                    <span>9 am</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">9 am</span>
                 </li>
-                <li>
-                    <span>10 am</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">10 am</span>
                 </li>
-                <li>
-                    <span>11 am</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">11 am</span>
                 </li>
-                <li>
-                    <span>12 pm</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">12 pm</span>
                 </li>
-                <li>
-                    <span>1 pm</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">1 pm</span>
                 </li>
-                <li>
-                    <span>2 pm</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">2 pm</span>
                 </li>
-                <li>
-                    <span>3 pm</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">3 pm</span>
                 </li>
-                <li>
-                    <span>4 pm</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">4 pm</span>
                 </li>
-                <li>
-                    <span>5 pm</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">5 pm</span>
                 </li>
-                <li>
-                    <span>6 pm</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">6 pm</span>
                 </li>
-                <li>
-                    <span>7 pm</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">7 pm</span>
                 </li>
-                <li>
-                    <span>8 pm</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">8 pm</span>
                 </li>
-                <li>
-                    <span>9 pm</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">9 pm</span>
                 </li>
-                <li>
-                    <span>10 pm</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">10 pm</span>
                 </li>
-                <li>
-                    <span>11 pm</span>
+                <li class="lg-calendar__hour">
+                    <span class="lg-calendar__hour--y-position">11 pm</span>
                 </li>
             </ul>
 
@@ -425,7 +431,7 @@
     <section class="event-modal hidden">
 
         <header class="event-modal__header">
-            <button class="close-event-modal btn">
+            <button class="close-event-modal event-btn">
                 <img class="close-event-icon" src="./assets/svg/close.svg" alt="Close icon.">
             </button>
         </header>
