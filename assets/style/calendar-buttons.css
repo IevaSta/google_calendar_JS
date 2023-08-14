@@ -42,7 +42,7 @@
 }
 
 .rectangle:focus,
-.arrow:focus{
+.arrow:focus {
     background-color: var(--color-burger-hover);
 }
 
@@ -73,12 +73,17 @@
     margin-inline-end: 10px;
 }
 
-.oval:hover{
+.oval:hover {
     background-color: var(--color-medium-light);
-    box-shadow: 0px 4px 4px 0px rgba(60,64,67,0.3),0px 8px 12px 6px rgba(60,64,67,0.15);;
+    box-shadow: 0px 4px 4px 0px rgba(60, 64, 67, 0.3), 0px 8px 12px 6px rgba(60, 64, 67, 0.15);
+    ;
 }
 
 .oval:focus,
 .oval:active {
     background-color: var(--color-burger-hover);
+}
+
+.open-event-modal {
+    margin: 14px 0 22px;
 }
