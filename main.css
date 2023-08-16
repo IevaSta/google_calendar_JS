@@ -105,9 +105,12 @@ li {
     background-color: var(--color-hover);
 }
 
-.not-curr-month,
 .side-calendar__column {
     color: var(--color-secondary);
+}
+
+.not-curr-month {
+    color: red;
 }
 
 .crr-day {
