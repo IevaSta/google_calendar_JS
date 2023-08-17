@@ -1,6 +1,8 @@
 import { doTitleDate } from './components/doTitleDate.js';
 import { renderModal } from './components/renderModal.js';
 
-doTitleDate(document.querySelector('#title_main'));
+const titleListDom = document.querySelectorAll('.render-title');
+
+titleListDom.forEach((title) => doTitleDate(title));
 
 renderModal();
