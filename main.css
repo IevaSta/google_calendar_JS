@@ -98,6 +98,10 @@ li {
     align-items: center;
 }
 
+.side-calendar__day {
+    color: black;
+}
+
 .side-calendar__day:hover {
     height: 28px;
     width: 28px;
@@ -105,12 +109,9 @@ li {
     background-color: var(--color-hover);
 }
 
+.not-curr-month,
 .side-calendar__column {
     color: var(--color-secondary);
-}
-
-.not-curr-month {
-    color: red;
 }
 
 .crr-day {
