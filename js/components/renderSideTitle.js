@@ -1,5 +1,3 @@
-// import { renderSideCalendar } from './renderSideCalendar.js';
-
 export function doTitleDate(title, activeDayData) {
   renderTitle(activeDayData, title);
 }

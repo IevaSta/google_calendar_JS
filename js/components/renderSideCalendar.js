@@ -9,12 +9,13 @@ export function renderSideCalendar(today, activeDay) {
 
   //   https://stackoverflow.com/questions/222309/calculate-last-day-of-month
   function getCalendarDays() {
-    const daysInPrevMonth = new Array(new Date(year, month - 1, 0).getDate()) //month ---> 0-11
+    const lastDayOfPrevMonth = new Date(year, month - 1, 0).getDate();
+    const daysInPrevMonth = new Array(lastDayOfPrevMonth) //month ---> 0-11
       .fill({})
       .map((_, i) => {
         return { number: i + 1, type: 'prev_month' };
       })
-      .slice(-firsWeekDayOfCrrMonth);
+      .slice(lastDayOfPrevMonth - firsWeekDayOfCrrMonth);
 
     const daysInCrrMonth = new Array(new Date(year, month, 0).getDate()) //month ---> 0-11
       .fill({})
@@ -44,6 +45,15 @@ export function renderSideCalendar(today, activeDay) {
     sideCalendarDayDOM.classList.add(...classList);
 
     if (Number(sideCalendarDayDOM.innerText) === today.getDate()) {
+      sideCalendarDayDOM.classList.add('active-day');
+    }
+
+    if (
+      Number(sideCalendarDayDOM.innerText) === today.getDate() &&
+      month === today.getMonth() &&
+      year === today.getFullYear()
+    ) {
+      sideCalendarDayDOM.classList.remove('active-day');
       sideCalendarDayDOM.classList.add('crr-day');
     }
 
