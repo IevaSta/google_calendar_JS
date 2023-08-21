@@ -126,6 +126,18 @@ li {
     background-color: var(--color-accent-hover);
 }
 
+.active-day {
+    color: var(--color-accent-dark);
+    background-color: var(--color-medium);
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+}
+
+.active-day:hover {
+    background-color: var(--color-tertiary);
+}
+
 /* lg-calendar-wrapper */
 .lg-calendar-wrapper {
     width: 100%;
