@@ -1,59 +1,118 @@
-import { doTitleDate } from '../components/doTitleDate.js';
+import { renderMainCalendar } from './components/renderMainCalendar.js';
+import { renderModal } from './components/renderModal.js';
+import { renderSideCalendar } from './components/renderSideCalendar.js';
 
-const eventModal = document.querySelector('.event-modal');
-const eventForm = document.querySelector('event__form');
-const officeForm = document.querySelector('out-of-office__form');
+renderModal();
 
-const tabButtons = document.querySelectorAll('.tab-btn');
-const tabContent = document.querySelectorAll('.tab-content');
+// ----STATE   state --> {today: , focusDay: }
+const initStateHandler = (initialState, render) => {
+  let state;
 
-const closeModal = () => {
-  eventModal.classList.add('hidden');
+  const stateHandler = {
+    setState(newState) {
+      state = newState;
+      render(stateHandler);
+    },
+    getState() {
+      return Object.freeze(state);
+    }
+  };
+
+  stateHandler.setState(initialState);
+  return stateHandler;
 };
-const openModal = () => eventModal.classList.remove('hidden');
 
-//Vaidas ch!!!
+// ----INIT CALENDAR
+function startCalendar() {
+  const stateHandler = initStateHandler(
+    { today: new Date(), activeDay: new Date() },
+    render
+  );
 
-// document.querySelector('#today-test').addEventListener('click', (e) => {
-//     e.stopPropagation();
-//     console.log('test');
-// });
+  const { setState, getState } = stateHandler;
 
-document.querySelector('.open-event-modal').addEventListener('click', (e) => {
-  e.stopPropagation();
-  openModal();
+  //--- update ACTIVE DAY by month
+  function nextMonth() {
+    const newActiveDayDate = new Date(getState().activeDay);
+    newActiveDayDate.setMonth(newActiveDayDate.getMonth() + 1);
 
-  tabButtons.forEach((t) => t.classList.remove('event-nav-btn--open'));
-  tabButtons[0].classList.add('event-nav-btn--open');
-  tabContent.forEach((t) => t.classList.add('hidden'));
-  tabContent[0].classList.remove('hidden');
-});
+    setState({
+      ...getState(),
+      activeDay: newActiveDayDate
+    });
+  }
 
-document
-  .querySelector('.close-event-modal')
-  .addEventListener('click', closeModal);
+  function backMonth() {
+    const newActiveDayDate = new Date(getState().activeDay);
+    newActiveDayDate.setMonth(newActiveDayDate.getMonth() - 1);
 
-function isClickedOutsideEventModal(target) {
-  return !eventModal.contains(target) && target !== eventModal;
+    setState({
+      ...getState(),
+      activeDay: newActiveDayDate
+    });
+  }
+
+  document
+    .querySelector('.forward-month__side')
+    .addEventListener('click', nextMonth);
+  document
+    .querySelector('.backward-month__side')
+    .addEventListener('click', backMonth);
+
+  //--- update ACTIVE DAY by week
+  function nextWeek() {
+    const newActiveDayDate = new Date(getState().activeDay);
+    newActiveDayDate.setDate(newActiveDayDate.getDate() + 7);
+    newActiveDayDate.getDate();
+
+    setState({
+      ...getState(),
+      activeDay: newActiveDayDate
+    });
+  }
+
+  function backWeek() {
+    const newActiveDayDate = new Date(getState().activeDay);
+    newActiveDayDate.setDate(newActiveDayDate.getDate() - 7);
+    newActiveDayDate.getDate();
+
+    setState({
+      ...getState(),
+      activeDay: newActiveDayDate
+    });
+  }
+
+  document
+    .querySelector('.forward-week__main')
+    .addEventListener('click', nextWeek);
+  document
+    .querySelector('.backward-week__main')
+    .addEventListener('click', backWeek);
 }
 
-document.addEventListener('click', (e) => {
-  isClickedOutsideEventModal(e.target) && closeModal();
-});
+// ----RENDERING
+function render(stateHandler) {
+  const { setState, getState } = stateHandler;
+  const state = getState();
 
-//switching between event tabs
-tabButtons.forEach((button) => {
-  const tabTarget = button.getAttribute('data-target');
-  const tab = document.querySelector(`[data-tab=${tabTarget}]`);
+  const todayData = state.today;
+  const activeDayData = state.activeDay;
 
-  button.addEventListener('click', (e) => {
-    e.preventDefault();
+  //--- update ACTIVE DAY by click
+  const clickedActiveDay = (clickedDay) => {
+    const newActiveDayDate = new Date(getState().activeDay);
 
-    tabButtons.forEach((t) => t.classList.remove('event-nav-btn--open'));
-    button.classList.add('event-nav-btn--open');
-    tabContent.forEach((t) => t.classList.add('hidden'));
-    tab.classList.remove('hidden');
-  });
-});
+    newActiveDayDate.setDate(clickedDay);
+    newActiveDayDate.getDate();
 
-doTitleDate(document.querySelector('#title_main'));
+    setState({
+      ...getState(),
+      activeDay: newActiveDayDate
+    });
+  };
+
+  renderSideCalendar(todayData, activeDayData, clickedActiveDay);
+  renderMainCalendar(todayData, activeDayData);
+}
+
+startCalendar();

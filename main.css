@@ -65,9 +65,12 @@ li {
 }
 
 .side-calendar__header,
+.side-calendar__title,
 .side-calendar__header--btn-wrapper {
     font-size: 14px;
-    margin-inline-start: 8px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-inline-start: 4px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -95,6 +98,10 @@ li {
     align-items: center;
 }
 
+.side-calendar__day {
+    color: black;
+}
+
 .side-calendar__day:hover {
     height: 28px;
     width: 28px;
@@ -117,6 +124,18 @@ li {
 
 .crr-day:hover {
     background-color: var(--color-accent-hover);
+}
+
+.active-day {
+    color: var(--color-accent-dark);
+    background-color: var(--color-medium);
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+}
+
+.active-day:hover {
+    background-color: var(--color-tertiary);
 }
 
 /* lg-calendar-wrapper */

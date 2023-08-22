@@ -27,13 +27,13 @@
             <h1 class="header-title">Calendar</h1>
 
             <button class="button rectangle">Today</button>
-            <button class="button arrow">
+            <button class="button arrow backward-week__main">
                 <img class="header-arrow" src="./assets/svg/arrow-left.svg" alt="Arrow to go back one step." />
             </button>
-            <button class="button arrow">
+            <button class="button arrow forward-week__main">
                 <img class="header-arrow" src="./assets/svg/arrow-right.svg" alt="Arrow to go forward one step." />
             </button>
-            <h2 id="title_main" class="header-subtitle">Month 2023</h2>
+            <h2 id="title_main" class="render-title__header header-subtitle">Month 2023</h2>
 
         </div>
 
@@ -53,13 +53,13 @@
 
             <section class="side-calendar">
                 <div class="side-calendar__header">
-                    <h3>Month Year</h3>
+                    <h3 class="side-calendar__title">Month 2023</h3>
                     <div class="side-calendar__header--btn-wrapper">
-                        <button class="button arrow">
+                        <button class="button arrow backward-month__side">
                             <img class="side-calendar__arrow" src="./assets/svg/arrow-left.svg"
                                 alt="Arrow to go back one step." />
                         </button>
-                        <button class="button arrow">
+                        <button class="button arrow forward-month__side">
                             <img class="side-calendar__arrow" src="./assets/svg/arrow-right.svg"
                                 alt="Arrow to go forward one step." />
                         </button>
@@ -77,55 +77,7 @@
                         <li>S</li>
                     </ul>
 
-                    <ul class="side-calendar__list">
-                        <li class="side-calendar__day not-curr-month">25</li>
-                        <li class="side-calendar__day not-curr-month">26</li>
-                        <li class="side-calendar__day not-curr-month">27</li>
-                        <li class="side-calendar__day not-curr-month">28</li>
-                        <li class="side-calendar__day not-curr-month">29</li>
-                        <li class="side-calendar__day not-curr-month">30</li>
-                        <li class="side-calendar__day">1</li>
-
-                        <li class="side-calendar__day">2</li>
-                        <li class="side-calendar__day crr-day">3</li>
-                        <li class="side-calendar__day">4</li>
-                        <li class="side-calendar__day">5</li>
-                        <li class="side-calendar__day">6</li>
-                        <li class="side-calendar__day">7</li>
-                        <li class="side-calendar__day">8</li>
-
-                        <li class="side-calendar__day">9</li>
-                        <li class="side-calendar__day">10</li>
-                        <li class="side-calendar__day">11</li>
-                        <li class="side-calendar__day">12</li>
-                        <li class="side-calendar__day">13</li>
-                        <li class="side-calendar__day">14</li>
-                        <li class="side-calendar__day">15</li>
-
-                        <li class="side-calendar__day">16</li>
-                        <li class="side-calendar__day">17</li>
-                        <li class="side-calendar__day">18</li>
-                        <li class="side-calendar__day">18</li>
-                        <li class="side-calendar__day">19</li>
-                        <li class="side-calendar__day">21</li>
-                        <li class="side-calendar__day">22</li>
-
-                        <li class="side-calendar__day">23</li>
-                        <li class="side-calendar__day">24</li>
-                        <li class="side-calendar__day">25</li>
-                        <li class="side-calendar__day">26</li>
-                        <li class="side-calendar__day">27</li>
-                        <li class="side-calendar__day">28</li>
-                        <li class="side-calendar__day">29</li>
-
-                        <li class="side-calendar__day">30</li>
-                        <li class="side-calendar__day">31</li>
-                        <li class="side-calendar__day not-curr-month">1</li>
-                        <li class="side-calendar__day not-curr-month">2</li>
-                        <li class="side-calendar__day not-curr-month">3</li>
-                        <li class="side-calendar__day not-curr-month">4</li>
-                        <li class="side-calendar__day not-curr-month">5</li>
-                    </ul>
+                    <ul class="side-calendar__list"></ul>
                 </div>
             </section>
         </aside>
