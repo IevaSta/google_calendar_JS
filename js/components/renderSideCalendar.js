@@ -1,5 +1,11 @@
-export function renderSideCalendar(today, activeDay) {
+import { renderSideTitle } from './renderSideTitle.js';
+
+export function renderSideCalendar(today, activeDay, clickedActiveDay) {
   const sideCalendarListDOM = document.querySelector('.side-calendar__list');
+  const sideTitleDOM = document.querySelector('.side-calendar__title');
+
+  renderSideTitle(sideTitleDOM, activeDay);
+
   sideCalendarListDOM.innerHTML = '';
 
   const year = activeDay.getFullYear();
@@ -35,6 +41,14 @@ export function renderSideCalendar(today, activeDay) {
 
   getCalendarDays(month, year).forEach((day) => {
     const sideCalendarDayDOM = document.createElement('li');
+
+    if (day.type === 'crr_month') {
+      const newActiveDayDate = day.number;
+      sideCalendarDayDOM.addEventListener('click', () =>
+        clickedActiveDay(newActiveDayDate)
+      );
+    }
+
     sideCalendarDayDOM.innerText = day.number;
 
     const classList =
@@ -44,12 +58,12 @@ export function renderSideCalendar(today, activeDay) {
 
     sideCalendarDayDOM.classList.add(...classList);
 
-    if (Number(sideCalendarDayDOM.innerText) === today.getDate()) {
+    if (day.number === activeDay.getDate() && day.type === 'crr_month') {
       sideCalendarDayDOM.classList.add('active-day');
     }
 
     if (
-      Number(sideCalendarDayDOM.innerText) === today.getDate() &&
+      day.number === today.getDate() &&
       month === today.getMonth() &&
       year === today.getFullYear()
     ) {
