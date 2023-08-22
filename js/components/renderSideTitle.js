@@ -1,4 +1,4 @@
-export function doTitleDate(title, activeDayData) {
+export function renderSideTitle(title, activeDayData) {
   renderTitle(activeDayData, title);
 }
 
