@@ -1,9 +1,6 @@
-import { doTitleDate } from './components/renderSideTitle.js';
+import { renderMainCalendar } from './components/renderMainCalendar.js';
 import { renderModal } from './components/renderModal.js';
 import { renderSideCalendar } from './components/renderSideCalendar.js';
-
-const headertitleListDOM = document.querySelector('.render-title__side');
-const sideTitleDOM = document.querySelector('.side-calendar__title');
 
 renderModal();
 
@@ -34,6 +31,7 @@ function startCalendar() {
 
   const { setState, getState } = stateHandler;
 
+  //--- update ACTIVE DAY by month
   function nextMonth() {
     const newActiveDayDate = new Date(getState().activeDay);
     newActiveDayDate.setMonth(newActiveDayDate.getMonth() + 1);
@@ -60,18 +58,61 @@ function startCalendar() {
   document
     .querySelector('.backward-month__side')
     .addEventListener('click', backMonth);
+
+  //--- update ACTIVE DAY by week
+  function nextWeek() {
+    const newActiveDayDate = new Date(getState().activeDay);
+    newActiveDayDate.setDate(newActiveDayDate.getDate() + 7);
+    newActiveDayDate.getDate();
+
+    setState({
+      ...getState(),
+      activeDay: newActiveDayDate
+    });
+  }
+
+  function backWeek() {
+    const newActiveDayDate = new Date(getState().activeDay);
+    newActiveDayDate.setDate(newActiveDayDate.getDate() - 7);
+    newActiveDayDate.getDate();
+
+    setState({
+      ...getState(),
+      activeDay: newActiveDayDate
+    });
+  }
+
+  document
+    .querySelector('.forward-week__main')
+    .addEventListener('click', nextWeek);
+  document
+    .querySelector('.backward-week__main')
+    .addEventListener('click', backWeek);
 }
 
 // ----RENDERING
 function render(stateHandler) {
-  const { getState } = stateHandler;
+  const { setState, getState } = stateHandler;
   const state = getState();
 
   const todayData = state.today;
   const activeDayData = state.activeDay;
 
-  doTitleDate(sideTitleDOM, activeDayData);
-  renderSideCalendar(todayData, activeDayData);
+  //--- update ACTIVE DAY by click
+  const clickedActiveDay = (clickedDay) => {
+    const newActiveDayDate = new Date(getState().activeDay);
+
+    newActiveDayDate.setDate(clickedDay);
+    newActiveDayDate.getDate();
+
+    setState({
+      ...getState(),
+      activeDay: newActiveDayDate
+    });
+  };
+
+  renderSideCalendar(todayData, activeDayData, clickedActiveDay);
+  renderMainCalendar(todayData, activeDayData);
 }
 
 startCalendar();
