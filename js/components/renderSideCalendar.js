@@ -15,41 +15,52 @@ export function renderSideCalendar(today, activeDay, clickedActiveDay) {
 
   //   https://stackoverflow.com/questions/222309/calculate-last-day-of-month
   function getCalendarDays() {
-    const lastDayOfPrevMonth = new Date(year, month - 1, 0).getDate();
+    const lastDayOfPrevMonth = new Date(year, month, 0).getDate();
+
     const daysInPrevMonth = new Array(lastDayOfPrevMonth) //month ---> 0-11
       .fill({})
       .map((_, i) => {
-        return { number: i + 1, type: 'prev_month' };
+        return {
+          number: i + 1,
+          type: 'prev_month',
+          date: new Date(year, month, i + 1)
+        };
       })
       .slice(lastDayOfPrevMonth - firsWeekDayOfCrrMonth);
 
-    const daysInCrrMonth = new Array(new Date(year, month, 0).getDate()) //month ---> 0-11
+    const daysInCrrMonth = new Array(new Date(year, month + 1, 0).getDate()) //month ---> 0-11
       .fill({})
       .map((_, i) => {
-        return { number: i + 1, type: 'crr_month' };
+        return {
+          number: i + 1,
+          type: 'crr_month',
+          date: new Date(year, month + 1, i + 1)
+        };
       });
 
-    const daysInNextMonth = new Array(new Date(year, month + 1, 0).getDate()) //month ---> 0-11
+    const daysInNextMonth = new Array(new Date(year, month + 2, 0).getDate()) //month ---> 0-11
       .fill({})
       .map((_, i) => {
-        return { number: i + 1, type: 'next_month' };
+        return {
+          number: i + 1,
+          type: 'next_month',
+          date: new Date(year, month + 2, i + 1)
+        };
       })
       .slice(0, 42 - daysInPrevMonth.length - daysInCrrMonth.length);
 
     return [...daysInPrevMonth, ...daysInCrrMonth, ...daysInNextMonth];
   }
 
+  // get MONTH DAYS
   getCalendarDays(month, year).forEach((day) => {
     const sideCalendarDayDOM = document.createElement('li');
-
-    if (day.type === 'crr_month') {
-      const newActiveDayDate = day.number;
-      sideCalendarDayDOM.addEventListener('click', () =>
-        clickedActiveDay(newActiveDayDate)
-      );
-    }
-
     sideCalendarDayDOM.innerText = day.number;
+
+    const newActiveDayDate = day.number;
+    sideCalendarDayDOM.addEventListener('click', () =>
+      clickedActiveDay(day.date)
+    );
 
     const classList =
       day.type === 'crr_month'
