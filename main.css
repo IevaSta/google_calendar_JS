@@ -103,6 +103,7 @@ li {
 }
 
 .side-calendar__day:hover {
+    cursor: pointer;
     height: 28px;
     width: 28px;
     border-radius: 50%;
@@ -216,18 +217,24 @@ li {
 }
 
 .month-day:hover {
+    cursor: pointer;
     border-radius: 50%;
     background-color: var(--color-burger-hover);
 }
 
-.week-day.active {
+/* .week-day.active-day {
     color: var(--color-accent-dark);
-}
+} */
 
-.month-day.active {
+.month-day.crr-day {
     border-radius: 50%;
     color: var(--color-light);
     background-color: var(--color-accent-dark);
+}
+
+.month-day.active-day {
+    color: var(--color-accent-dark);
+    background-color: var(--color-medium);
 }
 
 .lg-calendar__hour {
