@@ -3,6 +3,8 @@
 @import "/assets/style/calendar-buttons.css";
 @import "/assets/style/modal-button.css";
 @import "/assets/style/select.css";
+@import "/assets/style/event.css";
+
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -261,6 +263,7 @@ li {
 }
 
 .lg-calendar__cell-item {
+    position: relative;
     height: 48px;
     width: auto;
     min-width: 80px;

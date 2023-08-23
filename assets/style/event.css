@@ -1,0 +1,14 @@
+.event {
+    position: absolute;
+    z-index: 3;
+    color: var(--color-light);
+    font-size: 12px;
+    height: 200px;
+    width: 70px;
+    background-color: var(--color-accent-light);
+    border-radius: 4px;
+}
+
+.event-time {
+    font-weight: 200;
+}
