@@ -98,12 +98,9 @@ function render(stateHandler) {
   const todayData = state.today;
   const activeDayData = state.activeDay;
 
-  //--- update ACTIVE DAY by click
-  const clickedActiveDay = (clickedDay) => {
-    const newActiveDayDate = new Date(getState().activeDay);
-
-    newActiveDayDate.setDate(clickedDay);
-    newActiveDayDate.getDate();
+  //--- update ACTIVE DAY by clicking
+  const clickedActiveDay = (renderingDay) => {
+    const newActiveDayDate = new Date(renderingDay);
 
     setState({
       ...getState(),
@@ -112,7 +109,7 @@ function render(stateHandler) {
   };
 
   renderSideCalendar(todayData, activeDayData, clickedActiveDay);
-  renderMainCalendar(todayData, activeDayData);
+  renderMainCalendar(todayData, activeDayData, clickedActiveDay);
 }
 
 startCalendar();
