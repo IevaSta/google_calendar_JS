@@ -1,7 +1,7 @@
 import { renderSideTitle } from './renderSideTitle.js';
 
 export function renderMainCalendar(today, activeDay, clickedActiveDay) {
-  const headertitleListDOM = document.querySelector('.render-title__header ');
+  const headertitleListDOM = document.querySelector('.render-title__header');
   renderSideTitle(headertitleListDOM, activeDay);
 
   const year = activeDay.getFullYear();
