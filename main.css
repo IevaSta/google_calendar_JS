@@ -178,20 +178,15 @@ li {
 }
 
 .lg-calendar__gmt--border {
-    height: 24px;
-    border-right: 1px solid var(--color-secondary);
+    height: 25px;
     border-bottom: 1px solid;
     border-image: linear-gradient(90deg, #ffffff 85%, var(--color-border) 15%) 1;
 }
 
 .lg-calendar__column-list--border {
-    align-self: flex-end;
+    align-self: flex-start;
     height: 24px;
-    border-right: 1px solid var(--color-border);
-}
-
-.lg-calendar__column-list--no-border {
-    height: 24px;
+    border-left: 1px solid var(--color-border);
 }
 
 .week-day,
@@ -246,7 +241,6 @@ li {
     text-align: end;
     padding-inline-end: 15px;
     position: relative;
-    border-right: 1px solid var(--color-border);
     border-bottom: 1px solid;
     border-image: linear-gradient(90deg, #ffffff 85%, var(--color-border) 15%) 1;
 }
@@ -257,22 +251,26 @@ li {
 }
 
 .lg-calendar__column,
-.lg-calendar__cell-list {
+.week-layout-wrapper {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
 }
 
-.lg-calendar__cell-item {
+.week-layout-wrapper {
     position: relative;
+}
+
+.lg-calendar__cell-item {
     height: 48px;
     width: auto;
     min-width: 80px;
-    border-right: 1px solid var(--color-border);
+    border-left: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
 }
 
-.lg-calendar__cell-item:nth-of-type(7n) {
-    border-right: unset;
+.lg-calendar__cell-item:last-of-type {
+    border-bottom: unset;
+
 }
 
 /* Event creation modal layout  */

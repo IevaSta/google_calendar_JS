@@ -1,6 +1,5 @@
 .event {
     position: absolute;
-    z-index: 3;
     color: var(--color-light);
     font-size: 12px;
     height: 200px;
