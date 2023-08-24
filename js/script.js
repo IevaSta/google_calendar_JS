@@ -1,6 +1,7 @@
 import { renderMainCalendar } from './components/renderMainCalendar.js';
 import { renderModal } from './components/renderModal.js';
 import { renderSideCalendar } from './components/renderSideCalendar.js';
+// import { renderWeekLayout } from './components/renderWeekLayout.js';
 
 renderModal();
 
@@ -110,6 +111,7 @@ function render(stateHandler) {
 
   renderSideCalendar(todayData, activeDayData, clickedActiveDay);
   renderMainCalendar(todayData, activeDayData, clickedActiveDay);
+  // renderWeekLayout();
 }
 
 startCalendar();
