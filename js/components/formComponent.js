@@ -3,7 +3,7 @@ import { formTimeValidation } from '../helpers/formTimeValidation.js';
 import { formatDateToYYYYMMDD } from '../helpers/formatDateToYYYYMMDD.js';
 import { formatTimeToHHMM } from '../helpers/formatTimeToHHMM.js';
 
-const errorList = {};
+let errorList = {};
 export let isError = false;
 
 const eventDate = document.querySelector('.event-date');
@@ -11,8 +11,10 @@ const eventTitleDOM = document.querySelector('.event__form-header');
 const eventStartDOM = document.querySelector('.event-time__start');
 const eventEndDOM = document.querySelector('.event-time__end');
 
-export function initForm() {
-  resetForm();
+const errorDOM = document.querySelector('.error-msg');
+
+export function initForm(activeDay) {
+  resetForm(activeDay);
 
   //input validation
   eventTitleDOM.addEventListener('change', (e) => {
@@ -41,11 +43,15 @@ function checkTIme() {
   renderErrorMsg();
 }
 
-export function resetForm() {
+export function resetForm(activeDay) {
+  eventTitleDOM.classList.remove('error');
+  eventStartDOM.classList.remove('error');
+  eventEndDOM.classList.remove('error');
+  errorDOM.innerText = '';
+  errorList = {};
+
   const formDOM = document.querySelector('.event__form');
   formDOM.reset();
-
-  // eventTitleDOM.value = '';
 
   //event date
   const eventDateDOM = document.querySelector('.event-date');
@@ -59,6 +65,19 @@ export function resetForm() {
   const eventEndDate = new Date(new Date());
   eventEndDate.setHours(new Date().getHours() + 1);
   eventEndDOM.setAttribute('value', formatTimeToHHMM(eventEndDate));
+
+  //validatin initial event start and end
+  const activeDayDate = new Date(activeDay);
+  const _activeDayDate = new Date(activeDayDate);
+  _activeDayDate.setHours(_activeDayDate.getHours() + 1);
+
+  const activeDayEventInitEnd = formatTimeToHHMM(_activeDayDate);
+
+  formTimeValidation(
+    activeDayDate,
+    formatTimeToHHMM(activeDayDate),
+    activeDayEventInitEnd
+  );
 }
 
 function renderErrorClass(DOM, msg) {
@@ -70,7 +89,6 @@ function renderErrorClass(DOM, msg) {
 }
 
 function renderErrorMsg() {
-  const errorDOM = document.querySelector('.error-msg');
   errorDOM.innerText = '';
 
   for (let name in errorList) {
