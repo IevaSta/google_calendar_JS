@@ -1,10 +1,7 @@
-import { renderEvent } from './renderEvent.js';
-
 export function renderModal() {
   const eventModal = document.querySelector('.event-modal');
   const tabButtons = document.querySelectorAll('.tab-btn');
   const tabContent = document.querySelectorAll('.tab-content');
-  const saveEventButton = document.querySelector('.event-save-btn');
 
   const closeModal = () => {
     document.querySelector('.event__form-header').value = '';
@@ -58,11 +55,5 @@ export function renderModal() {
       tabContent.forEach((t) => t.classList.add('hidden'));
       tab.classList.remove('hidden');
     });
-  });
-
-  //saving event
-  saveEventButton.addEventListener('click', () => {
-    renderEvent();
-    closeModal();
   });
 }
