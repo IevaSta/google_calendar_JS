@@ -1,7 +1,11 @@
-export function renderEvent(event) {
+export function renderEvent(event, activeDay) {
   //take weekday from date input
   const inputDate = new Date(event.date);
-  const inputDateWeekDay = inputDate.getDay();
+
+  const activeDayDate = new Date(activeDay);
+  const sundayDate = new Date(
+    activeDayDate.setDate(activeDay.getDate() - activeDay.getDay())
+  );
 
   //converting time to pixels
   const eventTop = timeConverterToPixels(event.start).toString();
@@ -25,7 +29,13 @@ export function renderEvent(event) {
   eventDOM.appendChild(timeEndDOM);
 
   columnList.forEach((_, i) => {
-    if (i === inputDateWeekDay) {
+    const day = new Date(
+      sundayDate.getFullYear(),
+      sundayDate.getMonth(),
+      sundayDate.getDate() + i
+    );
+
+    if (day.toDateString() === inputDate.toDateString()) {
       columnList[i].prepend(eventDOM);
     }
   });
