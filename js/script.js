@@ -98,6 +98,14 @@ function startCalendar() {
     .querySelector('.backward-week__main')
     .addEventListener('click', backWeek);
 
+  //--- TODAY button
+  document.querySelector('.set-today').addEventListener('click', (e) => {
+    setState({
+      ...getState(),
+      activeDay: getState().today
+    });
+  });
+
   //--- save EVENTS
   //event form
   const formDOM = document.querySelector('.event__form');
@@ -141,8 +149,8 @@ function render(stateHandler) {
 
   renderSideCalendar(todayData, activeDayData, clickedActiveDay);
   renderMainCalendar(todayData, activeDayData, clickedActiveDay);
-  renderModal();
-  initForm();
+  renderModal(getState().activeDay);
+  initForm(getState().activeDay);
   handleEventList(getState().events, getState().activeDay);
 }
 
