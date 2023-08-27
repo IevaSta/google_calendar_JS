@@ -323,7 +323,7 @@ li {
     display: flex;
     flex-direction: column;
     padding-top: 24px;
-    padding-inline: 62px 16px;
+    padding-inline: 40px;
     font-size: 16px;
 }
 
@@ -338,6 +338,8 @@ li {
 }
 
 .event__form-header {
+    margin-bottom: 20px;
+
     outline: none;
     border: none;
     border-bottom: 1px solid var(--color-border);
@@ -345,7 +347,7 @@ li {
     font-size: 22px;
     letter-spacing: 1px;
     line-height: 1.4;
-    color: var(--color-font);
+    color: var(--color-font) !important;
 }
 
 .event__form-header:focus {
@@ -557,4 +559,5 @@ li {
 
 .error {
     color: red;
+    border-color: red;
 }
