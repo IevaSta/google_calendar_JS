@@ -23,7 +23,7 @@ export function renderSideCalendar(today, activeDay, clickedActiveDay) {
         return {
           number: i + 1,
           type: 'prev_month',
-          date: new Date(year, month, i + 1)
+          date: new Date(year, month - 1, i + 1)
         };
       })
       .slice(lastDayOfPrevMonth - firsWeekDayOfCrrMonth);
@@ -34,7 +34,7 @@ export function renderSideCalendar(today, activeDay, clickedActiveDay) {
         return {
           number: i + 1,
           type: 'crr_month',
-          date: new Date(year, month + 1, i + 1)
+          date: new Date(year, month, i + 1)
         };
       });
 
@@ -44,7 +44,7 @@ export function renderSideCalendar(today, activeDay, clickedActiveDay) {
         return {
           number: i + 1,
           type: 'next_month',
-          date: new Date(year, month + 2, i + 1)
+          date: new Date(year, month + 1, i + 1)
         };
       })
       .slice(0, 42 - daysInPrevMonth.length - daysInCrrMonth.length);
@@ -57,7 +57,6 @@ export function renderSideCalendar(today, activeDay, clickedActiveDay) {
     const sideCalendarDayDOM = document.createElement('li');
     sideCalendarDayDOM.innerText = day.number;
 
-    const newActiveDayDate = day.number;
     sideCalendarDayDOM.addEventListener('click', () =>
       clickedActiveDay(day.date)
     );
