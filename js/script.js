@@ -1,7 +1,7 @@
+import { isError, initForm } from './components/initForm.js';
 import { renderMainCalendar } from './components/renderMainCalendar.js';
 import { renderModal } from './components/renderModal.js';
 import { renderSideCalendar } from './components/renderSideCalendar.js';
-// import { renderWeekLayout } from './components/renderWeekLayout.js';
 
 renderModal();
 
@@ -26,7 +26,7 @@ const initStateHandler = (initialState, render) => {
 // ----INIT CALENDAR
 function startCalendar() {
   const stateHandler = initStateHandler(
-    { today: new Date(), activeDay: new Date() },
+    { today: new Date(), activeDay: new Date(), events: [] },
     render
   );
 
@@ -89,6 +89,25 @@ function startCalendar() {
   document
     .querySelector('.backward-week__main')
     .addEventListener('click', backWeek);
+
+  //--- save EVENTS
+  //event form
+  const formDOM = document.querySelector('.event__form');
+
+  if (!isError) {
+    formDOM.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(formDOM);
+      const eventDataList = Object.fromEntries(formData);
+      const id = Date.now();
+
+      const event = { id, ...eventDataList };
+
+      setState({ ...getState(), events: [...getState().events, event] });
+      // renderEvent();
+    });
+  }
 }
 
 // ----RENDERING
@@ -111,7 +130,7 @@ function render(stateHandler) {
 
   renderSideCalendar(todayData, activeDayData, clickedActiveDay);
   renderMainCalendar(todayData, activeDayData, clickedActiveDay);
-  // renderWeekLayout();
+  initForm();
 }
 
 startCalendar();
