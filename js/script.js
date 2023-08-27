@@ -1,8 +1,8 @@
 import { isError, initForm } from './components/formComponent.js';
-import { renderEvent } from './components/renderEvent.js';
 import { renderMainCalendar } from './components/renderMainCalendar.js';
 import { closeModal, renderModal } from './components/renderModal.js';
 import { renderSideCalendar } from './components/renderSideCalendar.js';
+import { handleEventList } from './helpers/handleEventList.js';
 
 // ----STATE   state --> {today: , focusDay: }
 const initStateHandler = (initialState) => {
@@ -27,13 +27,15 @@ function startCalendar() {
   const stateHandler = initStateHandler({
     today: new Date(),
     activeDay: new Date(),
-    events: []
+    events: JSON.parse(localStorage.getItem('calendar')) || []
   });
 
   const { setState, getState } = stateHandler;
 
   //--- update ACTIVE DAY by month
   function nextMonth() {
+    handleEventList(getState().events, getState().activeDay);
+
     const newActiveDayDate = new Date(getState().activeDay);
     newActiveDayDate.setMonth(newActiveDayDate.getMonth() + 1);
 
@@ -44,6 +46,8 @@ function startCalendar() {
   }
 
   function backMonth() {
+    handleEventList(getState().events, getState().activeDay);
+
     const newActiveDayDate = new Date(getState().activeDay);
     newActiveDayDate.setMonth(newActiveDayDate.getMonth() - 1);
 
@@ -62,6 +66,8 @@ function startCalendar() {
 
   //--- update ACTIVE DAY by week
   function nextWeek() {
+    handleEventList(getState().events, getState().activeDay);
+
     const newActiveDayDate = new Date(getState().activeDay);
     newActiveDayDate.setDate(newActiveDayDate.getDate() + 7);
     newActiveDayDate.getDate();
@@ -73,6 +79,8 @@ function startCalendar() {
   }
 
   function backWeek() {
+    handleEventList(getState().events, getState().activeDay);
+
     const newActiveDayDate = new Date(getState().activeDay);
     newActiveDayDate.setDate(newActiveDayDate.getDate() - 7);
     newActiveDayDate.getDate();
@@ -105,7 +113,9 @@ function startCalendar() {
       const event = { id, ...eventDataList };
 
       setState({ ...getState(), events: [...getState().events, event] });
-      renderEvent(event);
+      localStorage.setItem('calendar', JSON.stringify(getState().events));
+
+      handleEventList(getState().events, getState().activeDay);
       closeModal();
     });
   }
@@ -133,6 +143,7 @@ function render(stateHandler) {
   renderMainCalendar(todayData, activeDayData, clickedActiveDay);
   renderModal();
   initForm();
+  handleEventList(getState().events, getState().activeDay);
 }
 
 startCalendar();
