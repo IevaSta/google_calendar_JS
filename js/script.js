@@ -1,12 +1,11 @@
-import { isError, initForm } from './components/initForm.js';
+import { isError, initForm } from './components/formComponent.js';
+import { renderEvent } from './components/renderEvent.js';
 import { renderMainCalendar } from './components/renderMainCalendar.js';
-import { renderModal } from './components/renderModal.js';
+import { closeModal, renderModal } from './components/renderModal.js';
 import { renderSideCalendar } from './components/renderSideCalendar.js';
 
-renderModal();
-
 // ----STATE   state --> {today: , focusDay: }
-const initStateHandler = (initialState, render) => {
+const initStateHandler = (initialState) => {
   let state;
 
   const stateHandler = {
@@ -25,10 +24,11 @@ const initStateHandler = (initialState, render) => {
 
 // ----INIT CALENDAR
 function startCalendar() {
-  const stateHandler = initStateHandler(
-    { today: new Date(), activeDay: new Date(), events: [] },
-    render
-  );
+  const stateHandler = initStateHandler({
+    today: new Date(),
+    activeDay: new Date(),
+    events: []
+  });
 
   const { setState, getState } = stateHandler;
 
@@ -105,7 +105,8 @@ function startCalendar() {
       const event = { id, ...eventDataList };
 
       setState({ ...getState(), events: [...getState().events, event] });
-      // renderEvent();
+      renderEvent(event);
+      closeModal();
     });
   }
 }
@@ -130,6 +131,7 @@ function render(stateHandler) {
 
   renderSideCalendar(todayData, activeDayData, clickedActiveDay);
   renderMainCalendar(todayData, activeDayData, clickedActiveDay);
+  renderModal();
   initForm();
 }
 
