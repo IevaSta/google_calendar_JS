@@ -10,8 +10,6 @@ export function formTimeValidation(date, start, end) {
   const choosenStartDate = new Date(date + ' ' + start);
   const choosenEndDate = new Date(date + ' ' + end);
 
-  console.log(choosenStartDate.getTime() === currentTime.getTime());
-
   errorList = [
     ...errorList,
     {
