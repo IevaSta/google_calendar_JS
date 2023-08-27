@@ -144,7 +144,7 @@ li {
 /* lg-calendar-wrapper */
 .lg-calendar-wrapper {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 60px);
     display: grid;
     grid-template-columns: 60px auto;
     overflow: scroll;
@@ -358,9 +358,15 @@ li {
     justify-content: space-between;
 }
 
+.event-time-set__wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .event--set-date {
     border: none;
     outline: none;
+    padding: 0 10px 0 10px;
     color: var(--color-font);
 }
 
@@ -536,11 +542,19 @@ li {
     padding: 0 16px 10px 0;
 }
 
-
-
 /* out of office  */
 .office-desc {
     width: 100%;
     height: 34px;
     resize: none
+}
+
+/* events error style*/
+.error-msg {
+    color: red;
+    font-size: 14px;
+}
+
+.error {
+    color: red;
 }
