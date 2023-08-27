@@ -24,13 +24,13 @@ export function renderMainCalendar(today, activeDay, clickedActiveDay) {
     dayDOM.classList.remove('crr-day');
     dayDOM.classList.remove('active-day');
 
-    if (renderingDay.getDate() === today.getDate()) {
+    if (renderingDay.toDateString() === today.toDateString()) {
       dayDOM.classList.add('crr-day');
     }
 
     if (
       renderingDay.getDate() === activeDay.getDate() &&
-      activeDay.getDate() !== today.getDate()
+      activeDay.toDateString() !== today.toDateString()
     ) {
       dayDOM.classList.add('active-day');
     }
