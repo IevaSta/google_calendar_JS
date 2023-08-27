@@ -1,18 +1,12 @@
+import { resetForm } from './formComponent.js';
+
+let isModalOpen = false;
+
+const eventModal = document.querySelector('.event-modal');
+const tabButtons = document.querySelectorAll('.tab-btn');
+const tabContent = document.querySelectorAll('.tab-content');
+
 export function renderModal() {
-  const eventModal = document.querySelector('.event-modal');
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabContent = document.querySelectorAll('.tab-content');
-
-  const closeModal = () => {
-    document.querySelector('.event__form-header').value = '';
-    document.querySelector('.event-time__start').value = '';
-    document.querySelector('.event-time__end').value = '';
-    document.querySelector('.event-date').value = '';
-
-    eventModal.classList.add('hidden');
-  };
-  const openModal = () => eventModal.classList.remove('hidden');
-
   //Vaidas ch!!!
 
   // document.querySelector('#today-test').addEventListener('click', (e) => {
@@ -56,4 +50,17 @@ export function renderModal() {
       tab.classList.remove('hidden');
     });
   });
+}
+
+export function openModal() {
+  isModalOpen = true;
+  eventModal.classList.remove('hidden');
+}
+
+export function closeModal() {
+  if (isModalOpen) {
+    isModalOpen = false;
+    resetForm();
+    eventModal.classList.add('hidden');
+  }
 }
