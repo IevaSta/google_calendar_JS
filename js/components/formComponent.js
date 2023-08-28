@@ -18,7 +18,8 @@ export function initForm(activeDay) {
 
   //input validation
   eventTitleDOM.addEventListener('change', (e) => {
-    errorList.title = formInputValidation(e.target.value, 'title');
+    const titleValue = e.target.value.trim();
+    errorList.title = formInputValidation(titleValue, 'title');
 
     renderErrorClass(e.target, errorList.title);
     renderErrorMsg();

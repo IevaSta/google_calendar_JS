@@ -1,4 +1,4 @@
-export function renderEvent(event, activeDay) {
+export function renderEvent(event, activeDay, id, eventList, onEventDelete) {
   //take weekday from date input
   const inputDate = new Date(event.date);
 
@@ -23,10 +23,18 @@ export function renderEvent(event, activeDay) {
   const titleDOM = createDOM('span', 'event-title', event.title);
   const timeStartDOM = createDOM('span', 'event-time', event.start);
   const timeEndDOM = createDOM('span', 'event-time', event.end);
+  const eventDeleteDOM = createDOM('button', 'event-delete-btn', 'x');
+  eventDeleteDOM.setAttribute('data-id', id);
+
+  eventDeleteDOM.addEventListener('click', (_) => {
+    onEventDelete(id);
+    eventDOM.remove();
+  });
 
   eventDOM.appendChild(titleDOM);
   eventDOM.appendChild(timeStartDOM);
   eventDOM.appendChild(timeEndDOM);
+  titleDOM.appendChild(eventDeleteDOM);
 
   columnList.forEach((_, i) => {
     const day = new Date(
