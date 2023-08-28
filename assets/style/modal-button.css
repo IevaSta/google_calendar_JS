@@ -91,10 +91,16 @@ time zone button
 
 /* delete button */
 .event-delete-btn {
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+
     background-color: var(--color-active);
     color: var(--color-accent-dark);
     align-self: flex-start;
-    padding: 12px 24px;
+    padding: 2px 5px;
     margin-inline-start: 10px;
 }
 
@@ -102,6 +108,7 @@ time zone button
 .event-delete-btn:focus {
     background-color: var(--color-medium);
     color: var(--color-font);
+    cursor: pointer;
 }
 
 .event-delete-btn:active {
