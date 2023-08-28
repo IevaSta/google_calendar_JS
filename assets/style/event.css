@@ -1,0 +1,21 @@
+.event {
+    position: absolute;
+    color: var(--color-light);
+    font-size: 12px;
+    height: 200px;
+    width: 13%;
+    background-color: var(--color-accent-light);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.event>span {
+    display: flex;
+    justify-content: space-between;
+    margin: 2px;
+}
+
+.event-time {
+    font-weight: 200;
+}

@@ -30,10 +30,10 @@ time zone button
     background-color: var(--color-tertiary);
 }
 
-.event-nav-btn--open{
+.event-nav-btn--open {
     color: var(--color-accent-dark);
     background-color: var(--color-active);
-} 
+}
 
 /* find time button */
 .event-time-btn {
@@ -78,6 +78,7 @@ time zone button
     padding: 12px 24px;
     margin-inline-start: 10px;
 }
+
 .event-save-btn:hover,
 .event-save-btn:focus {
     background-color: var(--color-medium);
@@ -85,5 +86,31 @@ time zone button
 }
 
 .event-save-btn:active {
-    background-color:  var( --color-accent-active-dark);
+    background-color: var(--color-accent-active-dark);
+}
+
+/* delete button */
+.event-delete-btn {
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+
+    background-color: var(--color-active);
+    color: var(--color-accent-dark);
+    align-self: flex-start;
+    padding: 2px 5px;
+    margin-inline-start: 10px;
+}
+
+.event-delete-btn:hover,
+.event-delete-btn:focus {
+    background-color: var(--color-medium);
+    color: var(--color-font);
+    cursor: pointer;
+}
+
+.event-delete-btn:active {
+    background-color: var(--color-accent-active-dark);
 }

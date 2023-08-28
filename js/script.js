@@ -1,11 +1,11 @@
+import { initForm } from './components/formComponent.js';
 import { renderMainCalendar } from './components/renderMainCalendar.js';
-import { renderModal } from './components/renderModal.js';
+import { closeModal, renderModal } from './components/renderModal.js';
 import { renderSideCalendar } from './components/renderSideCalendar.js';
-
-renderModal();
+import { handleEventList } from './helpers/handleEventList.js';
 
 // ----STATE   state --> {today: , focusDay: }
-const initStateHandler = (initialState, render) => {
+const initStateHandler = (initialState) => {
   let state;
 
   const stateHandler = {
@@ -23,11 +23,12 @@ const initStateHandler = (initialState, render) => {
 };
 
 // ----INIT CALENDAR
-function startCalendar() {
-  const stateHandler = initStateHandler(
-    { today: new Date(), activeDay: new Date() },
-    render
-  );
+export function startCalendar() {
+  const stateHandler = initStateHandler({
+    today: new Date(),
+    activeDay: new Date(),
+    events: JSON.parse(localStorage.getItem('calendar')) || []
+  });
 
   const { setState, getState } = stateHandler;
 
@@ -88,6 +89,37 @@ function startCalendar() {
   document
     .querySelector('.backward-week__main')
     .addEventListener('click', backWeek);
+
+  //--- TODAY button
+  document.querySelector('.set-today').addEventListener('click', (e) => {
+    setState({
+      ...getState(),
+      activeDay: getState().today
+    });
+  });
+
+  //--- save EVENTS
+  //event form
+  const formDOM = document.querySelector('.event__form');
+
+  formDOM.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(formDOM);
+    const eventDataList = Object.fromEntries(formData);
+    eventDataList.title.trim();
+
+    if (eventDataList.title.trim()) {
+      const id = Date.now();
+
+      const event = { id, ...eventDataList, title: eventDataList.title.trim() };
+
+      setState({ ...getState(), events: [...getState().events, event] });
+      localStorage.setItem('calendar', JSON.stringify(getState().events));
+
+      closeModal();
+    }
+  });
 }
 
 // ----RENDERING
@@ -98,12 +130,9 @@ function render(stateHandler) {
   const todayData = state.today;
   const activeDayData = state.activeDay;
 
-  //--- update ACTIVE DAY by click
-  const clickedActiveDay = (clickedDay) => {
-    const newActiveDayDate = new Date(getState().activeDay);
-
-    newActiveDayDate.setDate(clickedDay);
-    newActiveDayDate.getDate();
+  //--- update ACTIVE DAY by clicking
+  const clickedActiveDay = (renderingDay) => {
+    const newActiveDayDate = new Date(renderingDay);
 
     setState({
       ...getState(),
@@ -111,8 +140,23 @@ function render(stateHandler) {
     });
   };
 
+  //delete Events
+  const onEventDelete = (eventId) => {
+    setState({
+      ...getState(),
+      events: getState().events.filter((event) => {
+        if (eventId !== event.id) return event;
+      })
+    });
+
+    localStorage.setItem('calendar', JSON.stringify(getState().events));
+  };
+
   renderSideCalendar(todayData, activeDayData, clickedActiveDay);
-  renderMainCalendar(todayData, activeDayData);
+  renderMainCalendar(todayData, activeDayData, clickedActiveDay);
+  renderModal(getState().activeDay);
+  initForm(getState().activeDay);
+  handleEventList(getState().events, getState().activeDay, onEventDelete);
 }
 
 startCalendar();

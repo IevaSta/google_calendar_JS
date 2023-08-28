@@ -1,13 +1,12 @@
-export function renderModal() {
-  const eventModal = document.querySelector('.event-modal');
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabContent = document.querySelectorAll('.tab-content');
+import { resetForm } from './formComponent.js';
 
-  const closeModal = () => {
-    eventModal.classList.add('hidden');
-  };
-  const openModal = () => eventModal.classList.remove('hidden');
+let isModalOpen = false;
 
+const eventModal = document.querySelector('.event-modal');
+const tabButtons = document.querySelectorAll('.tab-btn');
+const tabContent = document.querySelectorAll('.tab-content');
+
+export function renderModal(activeDay) {
   //Vaidas ch!!!
 
   // document.querySelector('#today-test').addEventListener('click', (e) => {
@@ -17,7 +16,7 @@ export function renderModal() {
 
   document.querySelector('.open-event-modal').addEventListener('click', (e) => {
     e.stopPropagation();
-    openModal();
+    openModal(activeDay);
 
     tabButtons.forEach((t) => t.classList.remove('event-nav-btn--open'));
     tabButtons[0].classList.add('event-nav-btn--open');
@@ -51,4 +50,17 @@ export function renderModal() {
       tab.classList.remove('hidden');
     });
   });
+}
+
+export function openModal(activeDay) {
+  isModalOpen = true;
+  resetForm(activeDay);
+  eventModal.classList.remove('hidden');
+}
+
+export function closeModal() {
+  if (isModalOpen) {
+    isModalOpen = false;
+    eventModal.classList.add('hidden');
+  }
 }
