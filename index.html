@@ -16,7 +16,11 @@
     <title>Wix calendar</title>
 </head>
 
+
 <body>
+    <div class="overlay-body overlay">
+        <div class="loader-body loader"></div>
+    </div>
     <header class="header-wrapper">
         <div class="header__nav-wrapper">
             <button class="button round">
@@ -395,7 +399,6 @@
     <!-- Event creation modal layout -->
     <!-- <dialog class="event-modal"> -->
     <section class="event-modal hidden">
-
         <header class="event-modal__header">
             <button class="close-event-modal event-btn">
                 <img class="close-event-icon" src="./assets/svg/close.svg" alt="Close icon.">
@@ -410,11 +413,13 @@
                     <li><button type="button" class="tab-btn open-event-form event-btn event-nav-btn event-form__item"
                             data-target="event">Event</button>
                     </li>
-                    <li><button type="button" class="event-btn event-nav-btn event-form__item">Focus time</button></li>
+                    <li><button type="button" class="event-btn event-nav-btn event-form__item">Focus time</button>
+                    </li>
                     <li><button type="button" class="tab-btn open-office-form event-btn event-nav-btn event-form__item"
                             data-target="office">Out of
                             office</button></li>
-                    <li><button type="button" class="event-btn event-nav-btn event-form__item">Work location</button>
+                    <li><button type="button" class="event-btn event-nav-btn event-form__item">Work
+                            location</button>
                     </li>
                     <li><button type="button" class="event-btn event-nav-btn event-form__item">Task</button></li>
                     <li><button type="button" class="event-btn event-nav-btn event-form__item">Appointment

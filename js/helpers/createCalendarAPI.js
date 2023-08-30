@@ -1,4 +1,4 @@
-function createCalendarAPI(config) {
+export function createCalendarAPI(config) {
   const delay = config.delay;
 
   const getRandomDelay = () => {
@@ -46,5 +46,16 @@ function createCalendarAPI(config) {
           resolve(getEvents());
         }, getRandomDelay());
       })
+
+    // listEvents: (shouldReject = false) =>
+    // new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     if (shouldReject) {
+    //       reject();
+    //     } else {
+    //       resolve(getEvents());
+    //     }
+    //   }, getRandomDelay());
+    // })
   };
 }

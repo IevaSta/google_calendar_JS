@@ -2,6 +2,7 @@ import { initForm } from './components/formComponent.js';
 import { renderMainCalendar } from './components/renderMainCalendar.js';
 import { closeModal, renderModal } from './components/renderModal.js';
 import { renderSideCalendar } from './components/renderSideCalendar.js';
+import { createCalendarAPI } from './helpers/createCalendarAPI.js';
 import { handleEventList } from './helpers/handleEventList.js';
 
 // ----STATE   state --> {today: , focusDay: }
@@ -22,6 +23,9 @@ const initStateHandler = (initialState) => {
   return stateHandler;
 };
 
+//API
+const calendarAPI = createCalendarAPI({ delay: [1000, 3000] });
+
 // ----INIT CALENDAR
 export function startCalendar() {
   document.querySelector('.lg-calendar-wrapper').scrollTo(0, 300);
@@ -29,11 +33,27 @@ export function startCalendar() {
   const stateHandler = initStateHandler({
     today: new Date(),
     activeDay: new Date(),
-    // events: JSON.parse(localStorage.getItem('calendar')) || []
-    events: []
+    events: [],
+    isLoading: false,
+    isError: false
   });
 
   const { setState, getState } = stateHandler;
+  setState({ ...getState(), isLoading: true });
+
+  calendarAPI
+    .listEvents()
+    .then((value) => {
+      setState({ ...getState(), events: value, isLoading: false });
+    })
+    .catch((error) => {
+      setState({
+        ...getState(),
+        events: [],
+        isError: true,
+        isLoading: false
+      });
+    });
 
   //--- update ACTIVE DAY by month
   function nextMonth() {
@@ -110,16 +130,34 @@ export function startCalendar() {
 
     const formData = new FormData(formDOM);
     const eventDataList = Object.fromEntries(formData);
-    eventDataList.title.trim();
 
-    if (eventDataList.title.trim()) {
-      const id = Date.now();
+    if (eventDataList.title) {
+      eventDataList.title.trim();
 
-      const event = { id, ...eventDataList, title: eventDataList.title.trim() };
+      if (eventDataList.title.trim()) {
+        const event = {
+          ...eventDataList,
+          title: eventDataList.title.trim()
+        };
 
-      setState({ ...getState(), events: [...getState().events, event] });
-      // localStorage.setItem('calendar', JSON.stringify(getState().events));
-      closeModal();
+        setState({ ...getState(), isLoading: true });
+
+        calendarAPI
+          .createEvent(event)
+          .then((event) => {
+            setState({
+              ...getState(),
+              events: [...getState().events, event],
+              isLoading: false
+            });
+            closeModal();
+          })
+          .catch((error) => {
+            setState({ ...getState(), isError: true, isLoading: false });
+          });
+      }
+    } else {
+      document.querySelector('.error-msg').innerText = 'Title is required.';
     }
   });
 }
@@ -128,6 +166,19 @@ export function startCalendar() {
 function render(stateHandler) {
   const { setState, getState } = stateHandler;
   const state = getState();
+
+  if (state.isLoading) {
+    document.querySelector('.overlay-body').classList.add('overlay');
+    document.querySelector('.loader-body').classList.add('loader');
+  } else {
+    document.querySelector('.overlay-body').classList.remove('overlay');
+    document.querySelector('.loader-body').classList.remove('loader');
+  }
+  // if (state.isError) {
+  //   document.querySelector('.error-overlay').style.display = 'block';
+  // } else {
+  //   document.querySelector('.error-overlay').style.display = 'none';
+  // }
 
   const todayData = state.today;
   const activeDayData = state.activeDay;
@@ -144,19 +195,33 @@ function render(stateHandler) {
 
   //delete Events
   const onEventDelete = (eventId) => {
-    setState({
-      ...getState(),
-      events: getState().events.filter((event) => {
-        if (eventId !== event.id) return event;
+    setState({ ...getState(), isLoading: true });
+
+    calendarAPI
+      .deleteEvent(eventId)
+      .then(() => {
+        setState({
+          ...getState(),
+          events: getState().events.filter((event) => {
+            if (eventId !== event.id) return event;
+          }),
+          isLoading: false
+        });
       })
-    });
-    // localStorage.setItem('calendar', JSON.stringify(getState().events));
+      .catch((error) => {
+        console.error('Error deleting event:', error);
+      });
   };
+
+  document.querySelector('.overlay-body').addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
 
   renderSideCalendar(todayData, activeDayData, clickedActiveDay);
   renderMainCalendar(todayData, activeDayData, clickedActiveDay);
   renderModal(getState().activeDay);
   initForm(getState().activeDay);
+
   handleEventList(getState().events, getState().activeDay, onEventDelete);
 }
 
