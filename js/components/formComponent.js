@@ -3,9 +3,6 @@ import { formTimeValidation } from '../helpers/formTimeValidation.js';
 import { formatDateToYYYYMMDD } from '../helpers/formatDateToYYYYMMDD.js';
 import { formatTimeToHHMM } from '../helpers/formatTimeToHHMM.js';
 
-let errorList = {};
-export let isError = false;
-
 const eventDate = document.querySelector('.event-date');
 const eventTitleDOM = document.querySelector('.event__form-header');
 const eventStartDOM = document.querySelector('.event-time__start');
@@ -13,9 +10,11 @@ const eventEndDOM = document.querySelector('.event-time__end');
 
 const errorDOM = document.querySelector('.error-msg');
 
+let errorList = {};
+
 export function initForm(activeDay) {
   resetForm(activeDay);
-
+  errorList = {};
   //input validation
   eventTitleDOM.addEventListener('change', (e) => {
     const titleValue = e.target.value.trim();
@@ -49,7 +48,6 @@ export function resetForm(activeDay) {
   eventStartDOM.classList.remove('error');
   eventEndDOM.classList.remove('error');
   errorDOM.innerText = '';
-  errorList = {};
 
   const formDOM = document.querySelector('.event__form');
   formDOM.reset();
@@ -66,19 +64,6 @@ export function resetForm(activeDay) {
   const eventEndDate = new Date(new Date());
   eventEndDate.setHours(new Date().getHours() + 1);
   eventEndDOM.setAttribute('value', formatTimeToHHMM(eventEndDate));
-
-  //validatin initial event start and end
-  const activeDayDate = new Date(activeDay);
-  const _activeDayDate = new Date(activeDayDate);
-  _activeDayDate.setHours(_activeDayDate.getHours() + 1);
-
-  const activeDayEventInitEnd = formatTimeToHHMM(_activeDayDate);
-
-  formTimeValidation(
-    activeDayDate,
-    formatTimeToHHMM(activeDayDate),
-    activeDayEventInitEnd
-  );
 }
 
 function renderErrorClass(DOM, msg) {
@@ -98,6 +83,4 @@ function renderErrorMsg() {
       errorDOM.innerText += `\n${msg}`;
     }
   }
-
-  isError = errorDOM.innerText ? true : false;
 }

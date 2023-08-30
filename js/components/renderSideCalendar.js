@@ -63,7 +63,7 @@ export function renderSideCalendar(today, activeDay, clickedActiveDay) {
 
     const classList =
       day.type === 'crr_month'
-        ? ['side-calendar__day']
+        ? ['side-calendar__day', 'crr_month']
         : ['side-calendar__day', 'not-curr-month'];
 
     sideCalendarDayDOM.classList.add(...classList);
@@ -72,11 +72,7 @@ export function renderSideCalendar(today, activeDay, clickedActiveDay) {
       sideCalendarDayDOM.classList.add('active-day');
     }
 
-    if (
-      day.number === today.getDate() &&
-      month === today.getMonth() &&
-      year === today.getFullYear()
-    ) {
+    if (day.date.toDateString() === today.toDateString()) {
       sideCalendarDayDOM.classList.remove('active-day');
       sideCalendarDayDOM.classList.add('crr-day');
     }

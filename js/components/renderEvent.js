@@ -1,4 +1,4 @@
-export function renderEvent(event, activeDay, id, eventList, onEventDelete) {
+export function renderEvent(event, activeDay, id, onEventDelete) {
   //take weekday from date input
   const inputDate = new Date(event.date);
 

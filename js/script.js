@@ -24,10 +24,13 @@ const initStateHandler = (initialState) => {
 
 // ----INIT CALENDAR
 export function startCalendar() {
+  document.querySelector('.lg-calendar-wrapper').scrollTo(0, 300);
+
   const stateHandler = initStateHandler({
     today: new Date(),
     activeDay: new Date(),
-    events: JSON.parse(localStorage.getItem('calendar')) || []
+    // events: JSON.parse(localStorage.getItem('calendar')) || []
+    events: []
   });
 
   const { setState, getState } = stateHandler;
@@ -115,8 +118,7 @@ export function startCalendar() {
       const event = { id, ...eventDataList, title: eventDataList.title.trim() };
 
       setState({ ...getState(), events: [...getState().events, event] });
-      localStorage.setItem('calendar', JSON.stringify(getState().events));
-
+      // localStorage.setItem('calendar', JSON.stringify(getState().events));
       closeModal();
     }
   });
@@ -148,8 +150,7 @@ function render(stateHandler) {
         if (eventId !== event.id) return event;
       })
     });
-
-    localStorage.setItem('calendar', JSON.stringify(getState().events));
+    // localStorage.setItem('calendar', JSON.stringify(getState().events));
   };
 
   renderSideCalendar(todayData, activeDayData, clickedActiveDay);
