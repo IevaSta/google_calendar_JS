@@ -1,4 +1,4 @@
-import { renderEvent } from '../components/renderEvent.js';
+import { renderEvent } from '../components/renderEvent';
 
 export function handleEventList(eventList, activeDay, onEventDelete) {
   const eventListDOM = document.querySelectorAll('.event');

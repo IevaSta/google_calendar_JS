@@ -1,9 +1,9 @@
-import { initForm } from './components/formComponent.js';
-import { renderMainCalendar } from './components/renderMainCalendar.js';
-import { closeModal, renderModal } from './components/renderModal.js';
-import { renderSideCalendar } from './components/renderSideCalendar.js';
-import { createCalendarAPI } from './helpers/createCalendarAPI.js';
-import { handleEventList } from './helpers/handleEventList.js';
+import { initForm } from './components/formComponent';
+import { renderMainCalendar } from './components/renderMainCalendar';
+import { closeModal, renderModal } from './components/renderModal';
+import { renderSideCalendar } from './components/renderSideCalendar';
+import { createCalendarAPI } from './helpers/createCalendarAPI';
+import { handleEventList } from './helpers/handleEventList';
 
 // ----STATE   state --> {today: , focusDay: }
 const initStateHandler = (initialState) => {

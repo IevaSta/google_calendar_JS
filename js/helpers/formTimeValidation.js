@@ -1,5 +1,3 @@
-import { formatTimeToHHMM } from './formatTimeToHHMM.js';
-
 export function formTimeValidation(date, start, end) {
   let errorList = [];
 

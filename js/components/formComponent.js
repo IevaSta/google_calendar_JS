@@ -1,7 +1,7 @@
-import { formInputValidation } from '../helpers/formInputValidation.js';
-import { formTimeValidation } from '../helpers/formTimeValidation.js';
-import { formatDateToYYYYMMDD } from '../helpers/formatDateToYYYYMMDD.js';
-import { formatTimeToHHMM } from '../helpers/formatTimeToHHMM.js';
+import { formInputValidation } from '../helpers/formInputValidation';
+import { formTimeValidation } from '../helpers/formTimeValidation';
+import { formatDateToYYYYMMDD } from '../helpers/formatDateToYYYYMMDD';
+import { formatTimeToHHMM } from '../helpers/formatTimeToHHMM';
 
 const eventDate = document.querySelector('.event-date');
 const eventTitleDOM = document.querySelector('.event__form-header');

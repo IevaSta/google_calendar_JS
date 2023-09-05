@@ -1,4 +1,4 @@
-import { renderSideTitle } from './renderSideTitle.js';
+import { renderSideTitle } from './renderSideTitle';
 
 export function renderMainCalendar(today, activeDay, clickedActiveDay) {
   const headertitleListDOM = document.querySelector('.render-title__header');

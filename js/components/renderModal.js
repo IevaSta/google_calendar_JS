@@ -1,4 +1,4 @@
-import { resetForm } from './formComponent.js';
+import { resetForm } from './formComponent';
 
 let isModalOpen = false;
 
