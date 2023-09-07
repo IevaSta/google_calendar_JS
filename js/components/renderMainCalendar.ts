@@ -1,8 +1,14 @@
-import { renderSideTitle } from './renderSideTitle';
+import { assertHTMLElement } from '../helpers/assertUtils.js';
+import { renderTitle } from './renderSideTitle.js';
 
-export function renderMainCalendar(today, activeDay, clickedActiveDay) {
+export function renderMainCalendar(
+  today: Date,
+  activeDay: Date,
+  clickedActiveDay: (renderingDay: Date) => void
+) {
   const headertitleListDOM = document.querySelector('.render-title__header');
-  renderSideTitle(headertitleListDOM, activeDay);
+  assertHTMLElement(headertitleListDOM);
+  renderTitle(headertitleListDOM, activeDay);
 
   const year = activeDay.getFullYear();
   const month = activeDay.getMonth();
@@ -14,10 +20,12 @@ export function renderMainCalendar(today, activeDay, clickedActiveDay) {
   currentWeekStart.setDate(day - todayWeekDay);
 
   document.querySelectorAll('.month-day').forEach((dayDOM, i) => {
+    assertHTMLElement(dayDOM);
+
     const renderingDay = new Date(currentWeekStart);
     renderingDay.setDate(renderingDay.getDate() + i);
 
-    dayDOM.innerText = renderingDay.getDate();
+    dayDOM.innerText = renderingDay.getDate().toString();
 
     dayDOM.addEventListener('click', () => clickedActiveDay(renderingDay));
 

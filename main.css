@@ -393,7 +393,7 @@ li {
     margin-inline-start: -10px;
     padding: 10px;
     padding-inline-start: 10px;
-    background-color: transparent;
+    background-color: var(--color-hover);
     color: var(--color-font);
     cursor: pointer;
     font-size: 14px;

@@ -1,4 +1,22 @@
-export function createCalendarAPI(config) {
+export type Availability = 'BUSYYY' | 'FREE';
+
+export interface Event {
+  title: string;
+  date: Date;
+  start: string;
+  end: string;
+  id: number;
+  selectBusyFree: Availability;
+}
+type CalendarAPI = {
+  createEvent: (event: Omit<Event, 'id'>) => Promise<Event>;
+  /** delets event */
+  deleteEvent: (id: number) => Promise<void>;
+  listEvents: () => Promise<Event[]>;
+};
+export function createCalendarAPI(config: {
+  delay: number[] | number;
+}): CalendarAPI {
   const delay = config.delay;
 
   const getRandomDelay = () => {
@@ -10,37 +28,42 @@ export function createCalendarAPI(config) {
 
   const storageKey = 'calendarEvents';
 
-  const getEvents = () => JSON.parse(localStorage.getItem(storageKey) || '[]');
+  const getEvents = (): Event[] =>
+    JSON.parse(localStorage.getItem(storageKey) || '[]');
 
-  const setEvents = (events) =>
+  const setEvents = (events: Event[]) =>
     localStorage.setItem(storageKey, JSON.stringify(events));
 
   return {
-    createEvent: (event) =>
+    createEvent: (event: Omit<Event, 'id'>): Promise<Event> =>
       new Promise((resolve) => {
         setTimeout(() => {
           const events = getEvents();
-          event.id = new Date().getTime();
-          events.push(event);
+          const createdEvent = {
+            id: new Date().getTime(),
+            ...event
+          };
+          events.push(createdEvent);
           setEvents(events);
-          resolve(event);
+          resolve(createdEvent);
         }, getRandomDelay());
       }),
+    /** delets event */
     deleteEvent: (id) =>
       new Promise((resolve, reject) => {
         setTimeout(() => {
           const events = getEvents();
-          const index = events.findIndex((e) => e.id === id);
+          const index = events.findIndex((e: Event) => e.id === id);
           if (index !== -1) {
             events.splice(index, 1);
             setEvents(events);
-            resolve(true);
+            resolve();
           } else {
             reject('Event not found');
           }
         }, getRandomDelay());
       }),
-    listEvents: () =>
+    listEvents: (): Promise<Event[]> =>
       new Promise((resolve) => {
         setTimeout(() => {
           resolve(getEvents());

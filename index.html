@@ -446,14 +446,13 @@
                 </span>
 
                 <label>
-                    <select class="event-select event-form__item">
-                        <option value="does-not-repeat ">Does not repeat</option>
-                        <option value="daily">Daily</option>
-                        <option value="weekly">Weekly</option>
+                    <select class="event-select event-form__item" name="selectBusyFree">
+                        <option value="Busy" type="select">Busy</option>
+                        <option value="Free" type="select">Free</option>
                     </select>
                 </label>
 
-                <button type="button" class="event-btn event-time-btn event-form__item">Find a time</button>
+                <!-- <button type="button" class="event-btn event-time-btn event-form__item">Find a time</button> -->
 
                 <label>
                     <input class="event-checkbox__guest event-form__item" type="text" placeholder="Add guest">
@@ -518,7 +517,7 @@
 
     </section>
 
-    <script src="./dist/js/script.ts" type="module" defer></script>
+    <script src="./dist/script.js" type="module" defer></script>
 </body>
 
 </html>

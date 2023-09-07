@@ -1,10 +1,22 @@
-import { renderSideTitle } from './renderSideTitle';
+import { renderTitle } from './renderSideTitle.js';
+type Config = {
+  today: Date;
+  activeDay: Date;
+  clickedActiveDay: (renderingDay: Date) => void;
+};
+export function renderSideCalendar({
+  today,
+  activeDay,
+  clickedActiveDay
+}: Config) {
+  const sideCalendarListDOM = document.querySelector(
+    '.side-calendar__list'
+  ) as HTMLElement;
+  const sideTitleDOM = document.querySelector(
+    '.side-calendar__title'
+  ) as HTMLElement;
 
-export function renderSideCalendar(today, activeDay, clickedActiveDay) {
-  const sideCalendarListDOM = document.querySelector('.side-calendar__list');
-  const sideTitleDOM = document.querySelector('.side-calendar__title');
-
-  renderSideTitle(sideTitleDOM, activeDay);
+  renderTitle(sideTitleDOM, activeDay);
 
   sideCalendarListDOM.innerHTML = '';
 
@@ -53,9 +65,9 @@ export function renderSideCalendar(today, activeDay, clickedActiveDay) {
   }
 
   // get MONTH DAYS
-  getCalendarDays(month, year).forEach((day) => {
-    const sideCalendarDayDOM = document.createElement('li');
-    sideCalendarDayDOM.innerText = day.number;
+  getCalendarDays().forEach((day) => {
+    const sideCalendarDayDOM = document.createElement('li') as HTMLElement;
+    sideCalendarDayDOM.innerText = day.number.toString();
 
     sideCalendarDayDOM.addEventListener('click', () =>
       clickedActiveDay(day.date)

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "live-server",
+    "start": "tsc --watch & live-server",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

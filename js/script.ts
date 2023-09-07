@@ -1,21 +1,35 @@
-import { initForm } from './components/formComponent';
-import { renderMainCalendar } from './components/renderMainCalendar';
-import { closeModal, renderModal } from './components/renderModal';
-import { renderSideCalendar } from './components/renderSideCalendar';
-import { createCalendarAPI } from './helpers/createCalendarAPI';
-import { handleEventList } from './helpers/handleEventList';
+import { initForm } from './components/formComponent.js';
+import { renderMainCalendar } from './components/renderMainCalendar.js';
+import { closeModal, renderModal } from './components/renderModal.js';
+import { renderSideCalendar } from './components/renderSideCalendar.js';
+import { querySelectorOrDie } from './helpers/assertUtils.js';
+import { Event, createCalendarAPI } from './helpers/createCalendarAPI.js';
+import { renderEventList } from './helpers/handleEventList.js';
+
+interface State {
+  today: Date;
+  activeDay: Date;
+  events: Event[];
+  isLoading: boolean;
+  isError: boolean;
+}
+
+interface StateHandler {
+  setState(newState: State): void;
+  getState(): Readonly<State>;
+}
 
 // ----STATE   state --> {today: , focusDay: }
-const initStateHandler = (initialState) => {
-  let state;
+const initStateHandler = (initialState: State) => {
+  let state: State;
 
-  const stateHandler = {
-    setState(newState) {
+  const stateHandler: StateHandler = {
+    setState(newState: State) {
       state = newState;
       render(stateHandler);
     },
     getState() {
-      return Object.freeze(state);
+      return state;
     }
   };
 
@@ -24,11 +38,11 @@ const initStateHandler = (initialState) => {
 };
 
 //API
-const calendarAPI = createCalendarAPI({ delay: [1000, 3000] });
+const calendarAPI = createCalendarAPI({ delay: 0 });
 
 // ----INIT CALENDAR
 export function startCalendar() {
-  document.querySelector('.lg-calendar-wrapper').scrollTo(0, 300);
+  document.querySelector('.lg-calendar-wrapper')?.scrollTo(0, 300);
 
   const stateHandler = initStateHandler({
     today: new Date(),
@@ -46,7 +60,7 @@ export function startCalendar() {
     .then((value) => {
       setState({ ...getState(), events: value, isLoading: false });
     })
-    .catch((error) => {
+    .catch(() => {
       setState({
         ...getState(),
         events: [],
@@ -78,10 +92,10 @@ export function startCalendar() {
 
   document
     .querySelector('.forward-month__side')
-    .addEventListener('click', nextMonth);
+    ?.addEventListener('click', nextMonth);
   document
     .querySelector('.backward-month__side')
-    .addEventListener('click', backMonth);
+    ?.addEventListener('click', backMonth);
 
   //--- update ACTIVE DAY by week
   function nextWeek() {
@@ -108,13 +122,13 @@ export function startCalendar() {
 
   document
     .querySelector('.forward-week__main')
-    .addEventListener('click', nextWeek);
+    ?.addEventListener('click', nextWeek);
   document
     .querySelector('.backward-week__main')
-    .addEventListener('click', backWeek);
+    ?.addEventListener('click', backWeek);
 
   //--- TODAY button
-  document.querySelector('.set-today').addEventListener('click', (e) => {
+  document.querySelector('.set-today')?.addEventListener('click', () => {
     setState({
       ...getState(),
       activeDay: getState().today
@@ -125,19 +139,19 @@ export function startCalendar() {
   //event form
   const formDOM = document.querySelector('.event__form');
 
-  formDOM.addEventListener('submit', (e) => {
+  formDOM?.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const formData = new FormData(formDOM);
-    const eventDataList = Object.fromEntries(formData);
+    const formData = new FormData(formDOM as HTMLFormElement);
+    const eventData: Omit<Event, 'id'> = Object.fromEntries(formData) as any;
 
-    if (eventDataList.title) {
-      eventDataList.title.trim();
+    if (eventData.title) {
+      eventData.title.trim();
 
-      if (eventDataList.title.trim()) {
+      if (eventData.title.trim()) {
         const event = {
-          ...eventDataList,
-          title: eventDataList.title.trim()
+          ...eventData,
+          title: eventData.title.trim()
         };
 
         setState({ ...getState(), isLoading: true });
@@ -152,39 +166,35 @@ export function startCalendar() {
             });
             closeModal();
           })
-          .catch((error) => {
+          .catch(() => {
             setState({ ...getState(), isError: true, isLoading: false });
           });
       }
     } else {
-      document.querySelector('.error-msg').innerText = 'Title is required.';
+      const msgDOM = document.querySelector('.error-msg') as HTMLElement;
+      msgDOM.innerText = 'Title is required.';
     }
   });
 }
 
 // ----RENDERING
-function render(stateHandler) {
+function render(stateHandler: StateHandler) {
   const { setState, getState } = stateHandler;
   const state = getState();
 
   if (state.isLoading) {
-    document.querySelector('.overlay-body').classList.add('overlay');
-    document.querySelector('.loader-body').classList.add('loader');
+    document.querySelector('.overlay-body')?.classList.add('overlay');
+    document.querySelector('.loader-body')?.classList.add('loader');
   } else {
-    document.querySelector('.overlay-body').classList.remove('overlay');
-    document.querySelector('.loader-body').classList.remove('loader');
+    document.querySelector('.overlay-body')?.classList.remove('overlay');
+    document.querySelector('.loader-body')?.classList.remove('loader');
   }
-  // if (state.isError) {
-  //   document.querySelector('.error-overlay').style.display = 'block';
-  // } else {
-  //   document.querySelector('.error-overlay').style.display = 'none';
-  // }
 
   const todayData = state.today;
   const activeDayData = state.activeDay;
 
-  //--- update ACTIVE DAY by clicking
-  const clickedActiveDay = (renderingDay) => {
+  //---
+  const clickedActiveDay = (renderingDay: Date) => {
     const newActiveDayDate = new Date(renderingDay);
 
     setState({
@@ -193,8 +203,7 @@ function render(stateHandler) {
     });
   };
 
-  //delete Events
-  const onEventDelete = (eventId) => {
+  const onEventDelete = (eventId: number) => {
     setState({ ...getState(), isLoading: true });
 
     calendarAPI
@@ -202,7 +211,7 @@ function render(stateHandler) {
       .then(() => {
         setState({
           ...getState(),
-          events: getState().events.filter((event) => {
+          events: getState().events.filter((event: Event) => {
             if (eventId !== event.id) return event;
           }),
           isLoading: false
@@ -213,16 +222,24 @@ function render(stateHandler) {
       });
   };
 
-  document.querySelector('.overlay-body').addEventListener('click', (e) => {
+  querySelectorOrDie('.overlay-body').addEventListener('click', (e) => {
     e.stopPropagation();
   });
 
-  renderSideCalendar(todayData, activeDayData, clickedActiveDay);
+  renderSideCalendar({
+    today: todayData,
+    activeDay: activeDayData,
+    clickedActiveDay
+  });
   renderMainCalendar(todayData, activeDayData, clickedActiveDay);
-  renderModal(getState().activeDay);
-  initForm(getState().activeDay);
+  renderModal();
+  initForm();
 
-  handleEventList(getState().events, getState().activeDay, onEventDelete);
+  renderEventList({
+    eventList: getState().events,
+    activeDay: getState().activeDay,
+    onEventDelete
+  });
 }
 
 startCalendar();

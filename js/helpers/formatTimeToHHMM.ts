@@ -1,4 +1,4 @@
-export function formatTimeToHHMM(date) {
+export function formatTimeToHHMM(date: Date) {
   const hours = date.getHours();
   const minutes = date.getMinutes();
 
